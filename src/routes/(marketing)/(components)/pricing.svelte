@@ -3,7 +3,6 @@
     import { Button } from '$lib/components/ui';
     import { cn } from '$lib/utils/cn';
     import { getAACSearchDashboardUrl } from '$lib/utils/dashboard';
-    import { SHOW_SCALE_PLAN } from '$lib/constants/feature-flags';
 
     const plans: Array<{
         name: string;
@@ -12,35 +11,75 @@
         tag?: string;
         subtitle?: string;
         event: string;
+        features: string[];
     }> = [
         {
             name: 'Free',
             price: '$0',
-            description: 'A great fit for passion projects and small applications.',
-            event: 'home-pricing-cards-free-click'
+            description: 'Perfect for getting started with AACSearch and small projects.',
+            subtitle: '/month',
+            event: 'home-pricing-cards-free-click',
+            features: [
+                '10K searches per month',
+                '1 collection',
+                'Basic search features',
+                'Community support'
+            ]
         },
         {
-            name: 'Pro',
-            price: '$25',
-            tag: 'Popular',
-            description:
-                'For production applications that need powerful functionality and resources to scale.',
+            name: 'Starter',
+            price: '$29',
+            description: 'Great for growing teams and production applications.',
             subtitle: '/month',
-            event: 'home-pricing-cards-pro-click'
+            event: 'home-pricing-cards-starter-click',
+            features: [
+                '100K searches per month',
+                '10 collections',
+                '2 integrations',
+                'Email support'
+            ]
         },
         {
-            name: 'Scale',
-            price: '$599',
-            description:
-                'For teams that handle more complex and large projects and need more control and support.',
+            name: 'Professional',
+            price: '$99',
+            tag: 'Most Popular',
+            description: 'For teams that need advanced features and scalability.',
             subtitle: '/month',
-            event: 'home-pricing-cards-scale-click'
+            event: 'home-pricing-cards-professional-click',
+            features: [
+                '500K searches per month',
+                'Unlimited collections',
+                'AI-powered search (limited)',
+                '5 integrations',
+                'Priority support'
+            ]
+        },
+        {
+            name: 'Business',
+            price: '$299',
+            description: 'For businesses requiring enterprise-grade features and reliability.',
+            subtitle: '/month',
+            event: 'home-pricing-cards-business-click',
+            features: [
+                '2M searches per month',
+                'Full AI capabilities',
+                'Unlimited integrations',
+                '99.9% SLA guarantee',
+                'Dedicated support'
+            ]
         },
         {
             name: 'Enterprise',
             price: 'Custom',
-            description: 'For enterprises that need more power and premium support.',
-            event: 'home-pricing-cards-enterprise-click'
+            description: 'For organizations with custom requirements and maximum control.',
+            event: 'home-pricing-cards-enterprise-click',
+            features: [
+                'Unlimited searches',
+                'On-premise deployment',
+                '99.99% SLA guarantee',
+                'Dedicated account manager',
+                '24/7 premium support'
+            ]
         }
     ];
 
@@ -50,9 +89,7 @@
 
     const { class: className }: PricingProps = $props();
 
-    const visiblePlans = SHOW_SCALE_PLAN ? plans : plans.filter((plan) => plan.name !== 'Scale');
-
-    const gridCols = `lg:grid-cols-${visiblePlans.length}`;
+    const gridCols = `lg:grid-cols-${plans.length}`;
 </script>
 
 <div
@@ -99,7 +136,7 @@
         <div
             class="border-smooth divide-smooth grid min-h-75 w-full grid-cols-1 divide-y divide-dashed rounded-3xl border bg-white/2 backdrop-blur-lg md:grid-cols-2 md:gap-y-12 md:divide-y-0 md:px-4 md:py-8 {gridCols} lg:divide-x"
         >
-            {#each visiblePlans as { name, price, tag: label, subtitle, description, event }}
+            {#each plans as { name, price, tag: label, subtitle, description, event }}
                 {@const isEnterprise = name === 'Enterprise'}
                 <div class="flex h-full w-full grow flex-col gap-1 px-5 py-5 md:py-0">
                     <div class="flex items-center gap-2.5">
@@ -129,7 +166,7 @@
 
                     <Button
                         class="mt-8 mb-0 w-full!"
-                        variant={name === 'Pro' ? 'primary' : 'secondary'}
+                        variant={name === 'Professional' ? 'primary' : 'secondary'}
                         href={isEnterprise ? '/contact-us/enterprise' : getAACSearchDashboardUrl()}
                         onclick={() => {
                             trackEvent(event);
