@@ -14,8 +14,8 @@
     };
 
     const {
-        title = "The developers' cloud",
-        subtitle = 'AACSearch is an open-source, cloud development platform for developers who like to get things done. Use built-in backend infrastructure and web hosting, all from a single place.'
+        title = "Enterprise Search Platform",
+        subtitle = 'Professional SaaS platform for search management with multi-tenancy, AI search, and complete billing lifecycle'
     }: Props = $props();
 </script>
 
