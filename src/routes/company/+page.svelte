@@ -6,9 +6,9 @@
     import { DEFAULT_DESCRIPTION, DEFAULT_HOST } from '$lib/utils/metadata';
     import { Button } from '$lib/components/ui';
 
-    const title = 'Company' + TITLE_SUFFIX;
+    const title = 'About AACSearch' + TITLE_SUFFIX;
     const description =
-        'At AACSearch, we aim to remove technical barriers with our backend solutions. Click here to learn more about our organization, its mission and goals.';
+        'Learn about AACSearch, our mission to make intelligent search accessible to everyone, our values, and the team behind the platform.';
     const ogImage = DEFAULT_HOST + '/images/open-graph/website.png';
 </script>
 
@@ -41,14 +41,14 @@
                         style="--hero-max-inline-size:62.125rem; --hero-gap:1.125rem;"
                     >
                         <h1 class="text-headline font-aeonik-pro text-primary">
-                            Unleashing creativity and innovation in every creator
+                            Making intelligent search accessible to everyone
                         </h1>
                         <div>
                             <p class="text-description">
-                                Software development transforms our everyday lives, relying heavily
-                                on the creativity and innovation of developers. At AACSearch, we
-                                enable them to develop products the world loves by removing
-                                technical barriers with our backend products.
+                                At AACSearch, we believe that intelligent search shouldn't be reserved for
+                                large tech companies. We're building a platform that empowers developers,
+                                founders, and enterprises to implement powerful search experiences without
+                                the complexity and cost of traditional solutions.
                             </p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     >
                         <div class="flex flex-col gap-8">
                             <h2 class="text-display font-aeonik-pro text-primary">
-                                Designed for and by developers
+                                Our Mission & Vision
                             </h2>
                             <Button
                                 event="company-careers-join_the_team-click"
@@ -78,21 +78,28 @@
                         </div>
 
                         <div class="text-description flex flex-col gap-4">
-                            <p>
-                                At AACSearch it is our mission to eliminate friction and abstract
-                                complexity for every creator. Giving developers all the tools they
-                                need with the best experience possible to have all the capabilities
-                                to create and innovate without limits and with minimum concerns.
-                            </p>
-                            <p>
-                                We do this by building the most complete development platform
-                                created for developers, backed by the open source community. A
-                                platform that has all the solutions you need in one place, with
-                                maximum flexibility and minimum friction. A platform that moves with
-                                you on your journey, from ideation to scale. A platform that allows
-                                you to succeed in the challenges of today, and those of tomorrow.
-                            </p>
-                            <p>Build like a team of hundreds.</p>
+                            <div>
+                                <h3 class="text-title font-aeonik-pro text-primary mb-2">Our Mission</h3>
+                                <p>
+                                    To democratize intelligent search by making it simple, affordable, and accessible to developers and organizations of all sizes. We're committed to removing technical barriers that prevent teams from building great search experiences.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-title font-aeonik-pro text-primary mb-2">Our Vision</h3>
+                                <p>
+                                    A world where every application, website, and platform has powerful, intuitive search built in. Where search isn't an afterthought, but a core part of how users discover and interact with content.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-title font-aeonik-pro text-primary mb-2">Our Values</h3>
+                                <ul class="space-y-2 ml-4">
+                                    <li><strong>Simplicity:</strong> Make complex technology simple to use</li>
+                                    <li><strong>Developer-First:</strong> Build tools developers love to use</li>
+                                    <li><strong>Transparency:</strong> Clear pricing, clear communication, no surprises</li>
+                                    <li><strong>Reliability:</strong> Enterprise-grade uptime and support for everyone</li>
+                                    <li><strong>Innovation:</strong> Constantly improve and add intelligent features</li>
+                                </ul>
+                            </div>
                         </div>
                     </section>
                 </section>

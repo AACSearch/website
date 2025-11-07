@@ -32,13 +32,16 @@
                 { label: 'Solid', href: '/docs/quick-starts/solid' }
             ],
             Products: [
-                { label: 'Auth', href: '/products/auth' },
-                { label: 'Databases', href: '/docs/products/databases' },
-                { label: 'Storage', href: '/products/storage' },
-                { label: 'Functions', href: '/products/functions' },
-                { label: 'Messaging', href: '/products/messaging' },
-                { label: 'Realtime', href: '/docs/apis/realtime' },
-                { label: 'Sites', href: '/products/sites' }
+                { label: 'Search Core', href: '/products/search-core' },
+                { label: 'AI Search', href: '/products/ai-search' },
+                { label: 'Integrations', href: '/products/integrations' },
+                { label: 'Widgets', href: '/products/widgets' },
+                { label: 'Analytics', href: '/products/analytics' },
+                { label: 'Merchandising', href: '/products/merchandising' },
+                { label: 'Multi-Search', href: '/products/multi-search' },
+                { label: 'Advanced Search', href: '/products/advanced-search' },
+                { label: 'Developer Tools', href: '/products/developer-tools' },
+                { label: 'Enterprise', href: '/products/enterprise' }
             ],
             Learn: [
                 { label: 'Docs', href: '/docs' },

@@ -1,3 +1,99 @@
+/**
+ * Site Metadata
+ */
+export type SiteMetadata = {
+    name: string;
+    title: string;
+    description: string;
+    url: string;
+    domain: string;
+};
+
+export const SITE: SiteMetadata = {
+    name: 'AACSearch',
+    title: 'AACSearch - Enterprise Search Platform',
+    description: 'Professional SaaS platform for enterprise search management with multi-tenancy, AI search, and complete billing lifecycle',
+    url: 'https://aacsearch.io',
+    domain: 'aacsearch.io'
+};
+
+/**
+ * AACSearch Products
+ */
+export type Product = {
+    name: string;
+    slug: string;
+    href: string;
+    description: string;
+    icon?: string;
+};
+
+export const PRODUCTS: Product[] = [
+    {
+        name: 'Search Core',
+        slug: 'search-core',
+        href: '/products/search-core',
+        description: 'Enterprise-grade full-text search engine powered by Typesense'
+    },
+    {
+        name: 'AI Search',
+        slug: 'ai-search',
+        href: '/products/ai-search',
+        description: 'Natural language, conversational, and voice search powered by AI'
+    },
+    {
+        name: 'Integrations',
+        slug: 'integrations',
+        href: '/products/integrations',
+        description: 'Connect 10+ platforms instantly with ready-made integrations'
+    },
+    {
+        name: 'Widgets',
+        slug: 'widgets',
+        href: '/products/widgets',
+        description: 'Customizable search UI components for any website'
+    },
+    {
+        name: 'Analytics',
+        slug: 'analytics',
+        href: '/products/analytics',
+        description: 'Real-time search analytics and performance insights'
+    },
+    {
+        name: 'Merchandising',
+        slug: 'merchandising',
+        href: '/products/merchandising',
+        description: 'Boost sales with intelligent product merchandising'
+    },
+    {
+        name: 'Multi-Search',
+        slug: 'multi-search',
+        href: '/products/multi-search',
+        description: 'Search across multiple collections simultaneously'
+    },
+    {
+        name: 'Advanced Search',
+        slug: 'advanced-search',
+        href: '/products/advanced-search',
+        description: 'Complex query DSL and advanced filtering capabilities'
+    },
+    {
+        name: 'Developer Tools',
+        slug: 'developer-tools',
+        href: '/products/developer-tools',
+        description: 'APIs, SDKs, and command-line tools for developers'
+    },
+    {
+        name: 'Enterprise',
+        slug: 'enterprise',
+        href: '/products/enterprise',
+        description: 'On-premise, SSO, SLA 99.99%, dedicated support'
+    }
+];
+
+/**
+ * Social Statistics
+ */
 type SocialStats = {
     [K in 'GITHUB' | 'DISCORD' | 'TWITTER' | 'YOUTUBE']: {
         STAT: string;
