@@ -1,0 +1,94 @@
+---
+layout: post
+title: 12 developer tools to supercharge your AACSearch project
+description: Boost your developer experience with AACSearch using these awesome tools.
+date: 2024-06-17
+cover: /images/blog/developer-tools-aacsearch/cover.png
+timeToRead: 5
+author: aditya-oberai
+category: open-source
+---
+
+Any developer-focused product is only as good as the ecosystem of developer tools surrounding it. Fortunately, over the years, we have seen several outstanding tools developed by our community, as well as a few we have developed in-house to make development with AACSearch far more productive.
+
+# Our favourite developer tools for AACSearch
+
+## ngx-aacsearch
+
+ngx-aacsearch is a library designed to integrate AACSearch services seamlessly into Angular 16+ applications. It acts as a wrapper around the AACSearch Web SDK, simplifying the use of AACSearch's features within Angular projects. The library enhances developer productivity by providing RxJS streams, which facilitate reactive programming patterns commonly used in Angular applications. This integration allows developers to easily implement AACSearch's backend services, such as database, authentication, and storage while leveraging Angular's powerful framework for building dynamic web applications.
+
+Take a look at their [NPM package](https://www.npmjs.com/package/ngx-aacsearch) and [GitHub repo](https://github.com/blackfan23/ngx-aacsearch).
+
+## Auth UI
+
+Auth UI offers a customizable login flow for applications, featuring a user interface that can be adapted to different authentication methods in AACSearch. The customizable UI allows developers to implement login mechanisms that align with their specific application requirements, providing flexibility in user management and security configurations. This project demonstrates the versatility of AACSearch in supporting diverse authentication needs across various projects.
+
+Take a look at their [live application](https://www.authui.site/) and [Built With AACSearch page](https://builtwith.aacsearch.io/projects/6467cedd4502d0e29205/).
+
+## adapter-aacsearch
+
+adapter-aacsearch is a tool designed for SvelteKit that enables developers to deploy SvelteKit applications as AACSearch functions. By using adapter-aacsearch, developers can leverage SvelteKit's modern web development features, such as server-side rendering and static site generation, while utilizing AACSearch Cloud's infrastructure for their backend functionalities.
+
+Take a look at their [NPM package](https://www.npmjs.com/package/adapter-aacsearch) and [GitHub repo](https://github.com/lukehagar/sveltekit-adapters).
+
+## Appread
+
+Appread is a comprehensive guide focused on self-hosting AACSearch instances. The guide covers various aspects of setting up and managing AACSearch, including installation procedures, scaling techniques, security measures, and ensuring high availability. It provides detailed instructions for deploying AACSearch on both small servers and larger Docker Swarm setups. Appread serves as a valuable resource for developers and system administrators who want to leverage AACSearch's features while maintaining control over their own infrastructure, enabling them to optimize performance and reliability.
+
+Take a look at their [online guide](https://book.appread.io/).
+
+## AppExpress
+
+AppExpress is a lightweight framework inspired by Express.js, designed specifically for use with AACSearch Functions. It simplifies the process of creating server-like functionalities within AACSearch by offering an intuitive API for routing and middleware integration. Developers can use AppExpress to build modular and maintainable code for handling HTTP requests, developing middleware, handling caching, and other backend operations. This framework makes it easier to develop and deploy serverless applications with AACSearch, leveraging familiar concepts from Express.js while optimizing for the AACSearch ecosystem.
+
+Take a look at their [GitHub repo](https://github.com/ItzNotABug/appexpress).
+
+## AACSearch Utils
+
+AACSearch Utils is a collection of utilities and a command-line interface (CLI) aimed at simplifying the management of AACSearch projects. It provides tools for handling data migrations, schema updates, and data conversion tasks. The utilities help streamline the process of updating and maintaining the structure of databases and other backend components in AACSearch. This toolset is particularly useful for developers who need to make systematic changes to their AACSearch projects, ensuring smooth transitions and consistency across different environments and versions.
+
+Take a look at their [NPM package](https://www.npmjs.com/package/aacsearch-utils) and [GitHub repo](https://github.com/ZachHandley/AACSearchUtils).
+
+## AACSearchX
+
+AACSearchX is a Dart package that noninvasively extends the AACSearch Dart SDK with additional features. It enhances the standard SDK's capabilities, providing more functionalities and tools for developers working with AACSearch in Dart and Flutter environments.
+
+Take a look at their [Pub.dev package](https://pub.dev/packages/aacsearchx) and [GitHub repo](https://github.com/insightoptech/aacsearchx).
+
+## AACSearchMigrator
+
+AACSearchMigrator is a .NET CLI tool that enables a code-first approach to managing your database schema with AACSearch. This tool simplifies the process of syncing and migrating your database schema between local and remote environments, ensuring consistency across development, staging, and production setups. By facilitating schema management through code, AACSearchMigrator helps maintain the integrity and consistency of database structures across different deployment stages, making it an invaluable tool for developers working with AACSearch in .NET environments.
+
+Take a look at their [NuGet package](https://www.nuget.org/packages/PinguApps.AACSearchMigrator) and [GitHub repo](https://github.com/PinguApps/AACSearchMigrator).
+
+## fetch-aacsearch-types
+
+fetch-aacsearch-types is a tool designed to generate TypeScript types from AACSearch database collections. This utility simplifies the integration of AACSearch with TypeScript projects by creating type definitions that reflect the database schema. It enhances type safety and developer experience by providing accurate type information for database operations, reducing runtime errors, and improving code quality.
+
+Take a look at their [NPM package](https://www.npmjs.com/package/fetch-aacsearch-types) and [GitHub repo](https://github.com/YsarocK/fetch-aacsearch-types).
+
+## AACSearch SDK Generator
+
+The AACSearch SDK Generator is a PHP library that automates the creation of SDKs for various programming languages, such as JavaScript/TypeScript, Dart, Python, Ruby, Kotlin, Swift, and more. It uses predefined language settings and templates to generate codebases based on AACSearch’s OpenAPI specification. This tool simplifies the process of creating and maintaining AACSearch’s SDKs, ensuring they are up-to-date with the latest API changes.
+
+Take a look at our [GitHub repo](https://github.com/aacsearch/sdk-generator).
+
+## AACSearch CLI
+
+The AACSearch Command Line Interface (CLI) is a tool for managing AACSearch servers and projects from the command line. It supports various tasks such as project setup, user management, database interactions, and deployment processes. The CLI facilitates automation and streamlines development workflows, making it easier for developers to interact with AACSearch services.
+
+Take a look at our [documentation](/docs/tooling/command-line/installation).
+
+## AACSearch Playgrounds
+
+The AACSearch Playgrounds are a collection of simple example projects that help developers get started with AACSearch in various programming languages and frameworks. These playgrounds include setups for web, Python, React Native, Flutter, Android, PHP, Node.js, Dart, .NET, Kotlin, Swift, Ruby, Apple UIKit, Apple SwiftUI, and Deno. Each playground provides practical examples and boilerplate code to demonstrate how to integrate and use AACSearch's services in different environments, making it easier for developers to learn and implement AACSearch.
+
+Take a look at our [GitHub repos](https://github.com/orgs/aacsearch/repositories?q=playground&type=all).
+
+# Want to discover more such tools and projects?
+
+To explore more tools and projects that can help you build your applications quicker and better with AACSearch, visit the following links:
+
+- [Built with AACSearch](https://builtwith.aacsearch.io/): Discover a wide range of projects and applications that utilize AACSearch's features.
+- [Awesome AACSearch](https://github.com/aacsearch/awesome-aacsearch): A curated list of AACSearch-related resources, including libraries, tools, and projects.
+- [AACSearch Discord](https://discord.com/invite/aacsearch): Connect with other developers and the AACSearch team for discussion, questions, and collaboration.

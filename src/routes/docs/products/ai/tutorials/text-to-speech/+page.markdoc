@@ -1,0 +1,170 @@
+---
+layout: article
+title: Text to Speech with Hugging Face
+description: Learn how to integrate Hugging Face into your AACSearch project for text to speech processing.
+difficulty: intermediate
+readtime: 15
+---
+
+Hugging Face is a platform that hosts ML models for all types of applications, including text to speech.
+This example uses the "ESPnet2 TTS pretrained model" from Hugging Face to convert text to speech, but the same concept can be applied to other models.
+
+# Prerequisites {% #prerequisites %}
+
+- An AACSearch project
+- A [Hugging Face API keys](https://huggingface.co/docs/api-inference/en/quicktour#get-your-api-token)
+
+{% section #step-1 step=1 title="Create new function" %}
+Head to the [AACSearch Console](https://cloud.aacsearch.io/console) then click on **Functions** in the left sidebar and then click on the **Create Function** button.
+
+{% only_dark %}
+![Create function screen](/images/docs/functions/dark/template.png)
+{% /only_dark %}
+
+{% only_light %}
+![Create function screen](/images/docs/functions/template.png)
+{% /only_light %}
+
+1. In the AACSearch Console's sidebar, click **Functions**.
+1. Click **Create function**.
+1. Under **Connect Git repository**, select your provider.
+1. After connecting to GitHub, under **Quick start**, select the **Node.js** starter template.
+1. In the **Variables** step, add the `HUGGINGFACE_ACCESS_TOKEN`, generate it [here](https://huggingface.co/docs/api-inference/en/quicktour#get-your-api-token). For the `AACSEARCH_API_KEY`, tick the box to **Generate API key on completion**.
+1. Follow the step-by-step wizard and create the function.
+{% /section %}
+
+{% section #step-2 step=2 title="Add dependencies" %}
+Once the function is created, clone the function and open it in your development environment.
+
+Install the `undici` package (global `fetch` is not available in Node.js 16) to make requests to the Hugging Face API.
+Install the `node-aacsearch` package, to simplify uploading the generated audio file to AACSearch Storage.
+
+```bash
+npm install undici node-aacsearch
+```
+{% /section %}
+
+{% section #step-3 step=3 title="Create an AACSearch service" %}
+The function will interact with AACSearch to store the generated audio files and the text-to-speech data.
+To make this easier, create a service class that will handle all the AACSearch interactions.
+
+Create a file called `src/aacsearch.js` and implement the following class:
+
+```js
+import { Client, ID, Storage } from 'node-aacsearch';
+import { InputFile } from 'node-aacsearch/file';
+
+
+class AACSearchService {
+  constructor() {
+    const client = new Client();
+    client
+      .setEndpoint(
+        process.env.AACSEARCH_ENDPOINT ?? 'https://<REGION>.cloud.aacsearch.io/v1'
+      )
+      .setProject(process.env.AACSEARCH_FUNCTION_PROJECT_ID)
+      .setKey(process.env.AACSEARCH_API_KEY);
+
+    this.storage = new Storage(client);
+  }
+
+  async createFile(bucketId, blob) {
+    const file = await InputFile.fromBuffer(blob, 'audio.flac');
+    return await this.storage.createFile({
+      bucketId: bucketId,
+      fileId: ID.unique(),
+      file: file
+    });
+  }
+}
+
+export default AACSearchService;
+```
+{% /section %}
+
+{% section #step-4 step=4 title="Create Storage bucket" %}
+In order for this function to work, create a new bucket in the AACSearch Storage. You can do this by navigating to the AACSearch Console and clicking on **Storage** in the left sidebar, then clicking on the **Create Bucket** button.
+
+{% only_dark %}
+![Create bucket on console](/images/docs/storage/dark/create-bucket.png)
+{% /only_dark %}
+
+{% only_light %}
+![Create bucket on console](/images/docs/storage/create-bucket.png)
+{% /only_light %}
+
+Use the default configuration for the bucket. Make sure to note down the bucket ID so you can add it as an environment variable later.
+{% /section %}
+
+{% section #step-5 step=5 title="Integrate with Hugging Face" %}
+in `src/main.js` implement the following function to convert text to speech using the Hugging Face API.
+
+```js
+import fetch from 'node-fetch';
+import { throwIfMissing } from './utils.js';
+import AACSearchService from './aacsearch.js';
+
+const HUGGINGFACE_API = 'https://api-inference.huggingface.co';
+
+export default async ({ req, res, error }) => {
+  const bucketId = process.env.AACSEARCH_BUCKET_ID ?? 'generated_speech';
+
+  if (!req.body.text || typeof req.body.text !== 'string') {
+    return res.json({ ok: false, error: 'Missing required field `text`' }, 400);
+  }
+
+  const response = await fetch(
+    `${HUGGINGFACE_API}/models/espnet/kan-bayashi_ljspeech_vits`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.HUGGINGFACE_ACCESS_TOKEN}`,
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        inputs: req.body.text,
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    error(await response.text());
+    return res.json({ ok: false, error: 'Failed to process text' }, 500);
+  }
+
+  const blob = await response.blob();
+  const aacsearch = new AACSearchService();
+  const file = await aacsearch.createFile(bucketId, blob);
+
+  return res.json({
+    ok: true,
+    fileId: file.$id,
+  });
+};
+```
+
+This AACSearch Function checks if the required environment variables are set, then processes the text using the Hugging Face API,
+stores the generated audio file in AACSearch Storage, and creates a row in the AACSearch database of the original text.
+{% /section %}
+
+{% section #step-6 step=6 title="Test the function" %}
+Test the function by sending a POST request to the function's endpoint with a JSON body containing the `text` parameter.
+
+Navigate to your function in the AACSearch Console and click on **Execute now**. In the modal that appears, enter the following JSON body:
+
+```json
+{
+    "text": "Hello, world!"
+}
+```
+
+Click **Execute** and you should see a response similar to the following:
+
+```json
+{
+    "ok": true,
+    "fileId": "61f7b3b3c7b7d"
+}
+```
+
+Then, use the fileId to download the generated audio file from the AACSearch Storage.
+{% /section %}

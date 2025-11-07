@@ -1,0 +1,16 @@
+import { Client, Account } from 'node-aacsearch';
+import { cookies } from 'next/headers';
+
+async function getLoggedInUser() {
+  const session = cookies().get('custom-session-cookie');
+  if (!session) return;
+
+  const client = new Client()
+    .setEndpoint(process.env.NEXT_PUBLIC_AACSEARCH_ENDPOINT)
+    .setProject(process.env.NEXT_PUBLIC_AACSEARCH_PROJECT_ID);
+
+  client.setSession(session.value);
+  const account = new Account(client);
+
+  return account.get();
+}

@@ -1,0 +1,103 @@
+name: Tests
+
+on:
+    pull_request:
+        branches: ['**']
+
+jobs:
+    format:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: 1.3
+            - name: Install dependencies
+              run: bun install --frozen-lockfile
+            - name: Check formatting
+              run: bun run format:check
+    tests:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: 1.3
+            - name: Install dependencies
+              run: bun install --frozen-lockfile
+            - name: Install Playwright Browsers
+              run: bunx playwright install --with-deps chromium
+            - name: Run tests
+              env:
+                  PUBLIC_AACSEARCH_ENDPOINT: ${{ vars.PUBLIC_AACSEARCH_ENDPOINT }}
+                  PUBLIC_AACSEARCH_DASHBOARD: ${{ vars.PUBLIC_AACSEARCH_DASHBOARD }}
+                  PUBLIC_AACSEARCH_PROJECT_ID: ${{ vars.PUBLIC_AACSEARCH_PROJECT_ID }}
+                  PUBLIC_AACSEARCH_DB_MAIN_ID: ${{ vars.PUBLIC_AACSEARCH_DB_MAIN_ID }}
+                  PUBLIC_AACSEARCH_COL_THREADS_ID: ${{ vars.PUBLIC_AACSEARCH_COL_THREADS_ID }}
+                  PUBLIC_AACSEARCH_COL_MESSAGES_ID: ${{ vars.PUBLIC_AACSEARCH_COL_MESSAGES_ID }}
+                  PUBLIC_AACSEARCH_FN_TLDR_ID: ${{ vars.PUBLIC_AACSEARCH_FN_TLDR_ID }}
+                  PUBLIC_AACSEARCH_PROJECT_INIT_ID: ${{ vars.PUBLIC_AACSEARCH_PROJECT_INIT_ID }}
+                  PUBLIC_GROWTH_ENDPOINT: ${{ vars.PUBLIC_GROWTH_ENDPOINT }}
+                  PUBLIC_POSTHOG_API_KEY: ${{ vars.PUBLIC_POSTHOG_API_KEY }}
+                  AACSEARCH_DB_INIT_ID: ${{ secrets.AACSEARCH_DB_INIT_ID }}
+                  AACSEARCH_COL_INIT_ID: ${{ secrets.AACSEARCH_COL_INIT_ID }}
+                  AACSEARCH_API_KEY_INIT: ${{ secrets.AACSEARCH_API_KEY_INIT }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: bun run test
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: 1.3
+            - name: Install dependencies
+              run: bun install --frozen-lockfile
+            - name: Build Website
+              env:
+                  NODE_OPTIONS: '--max_old_space_size=16384'
+                  PUBLIC_AACSEARCH_ENDPOINT: ${{ vars.PUBLIC_AACSEARCH_ENDPOINT }}
+                  PUBLIC_AACSEARCH_DASHBOARD: ${{ vars.PUBLIC_AACSEARCH_DASHBOARD }}
+                  PUBLIC_AACSEARCH_PROJECT_ID: ${{ vars.PUBLIC_AACSEARCH_PROJECT_ID }}
+                  PUBLIC_AACSEARCH_DB_MAIN_ID: ${{ vars.PUBLIC_AACSEARCH_DB_MAIN_ID }}
+                  PUBLIC_AACSEARCH_COL_THREADS_ID: ${{ vars.PUBLIC_AACSEARCH_COL_THREADS_ID }}
+                  PUBLIC_AACSEARCH_COL_MESSAGES_ID: ${{ vars.PUBLIC_AACSEARCH_COL_MESSAGES_ID }}
+                  PUBLIC_AACSEARCH_FN_TLDR_ID: ${{ vars.PUBLIC_AACSEARCH_FN_TLDR_ID }}
+                  PUBLIC_AACSEARCH_PROJECT_INIT_ID: ${{ vars.PUBLIC_AACSEARCH_PROJECT_INIT_ID }}
+                  PUBLIC_GROWTH_ENDPOINT: ${{ vars.PUBLIC_GROWTH_ENDPOINT }}
+                  PUBLIC_POSTHOG_API_KEY: ${{ vars.PUBLIC_POSTHOG_API_KEY }}
+                  AACSEARCH_DB_INIT_ID: ${{ secrets.AACSEARCH_DB_INIT_ID }}
+                  AACSEARCH_COL_INIT_ID: ${{ secrets.AACSEARCH_COL_INIT_ID }}
+                  AACSEARCH_API_KEY_INIT: ${{ secrets.AACSEARCH_API_KEY_INIT }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: bun run build
+    assets:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: 1.3
+            - name: Install dependencies
+              run: bun install --frozen-lockfile
+            - name: Optimize assets
+              run: CI=true bun run optimize
+            - name: Check for uncommitted changes
+              run: |
+                  if ! git diff --exit-code; then
+                    echo "Assets are not optimized! The following changes were detected:"
+                    echo ""
+                    git diff
+                    echo ""
+                    echo "Please run 'bun run optimize' locally and commit the changes."
+                    exit 1
+                  fi
+                  echo "✅ All assets are properly optimized."

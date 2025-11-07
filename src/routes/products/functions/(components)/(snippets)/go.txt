@@ -1,0 +1,45 @@
+package handler
+
+import (
+	"fmt"
+	"os"
+	"github.com/aacsearch/sdk-for-go/aacsearch"
+	"github.com/open-runtimes/types-for-go/v4/openruntimes"
+)
+
+type Response struct {
+	Motto       string `json:"motto"`
+	Learn       string `json:"learn"`
+	Connect     string `json:"connect"`
+	GetInspired string `json:"getInspired"`
+}
+
+func Main(Context openruntimes.Context) openruntimes.Response {
+	// This is your AACSearch function
+	// It's executed each time we get a request service
+	var _ = aacsearch.NewClient(
+		aacsearch.WithProject(os.Getenv("AACSEARCH_FUNCTION_PROJECT_ID")),
+		aacsearch.WithKey(Context.Req.Headers["x-aacsearch-key"]),
+	)
+
+	// You can log messages to the console
+	fmt.Println("Hello, Logs!")
+
+	fmt.Fprintln(os.Stderr, "Error:", "Hello, Errors!")
+
+	// The 'Context.Req' object contains the request data
+	if Context.Req.Method == "GET" {
+		// Send a response with the Context.Res object helpers
+		// 'Context.Res.Text()' dispatches a string back to the client
+		return Context.Res.Text("Hello, World!")
+	}
+
+	// 'res.json()' is a handy helper for sending JSON
+	return Context.Res.Json(
+		Response{
+			Motto:       "Build like a team of hundreds_",
+			Learn:       "https://aacsearch.io/docs",
+			Connect:     "https://aacsearch.io/discord",
+			GetInspired: "https://builtwith.aacsearch.io",
+		})
+}

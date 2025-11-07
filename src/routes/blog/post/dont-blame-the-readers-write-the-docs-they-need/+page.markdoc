@@ -1,0 +1,118 @@
+---
+layout: post
+title: Don’t blame the readers, write the documentation they need
+description: Unveiling AACSearch's new documentation. More details, just as simple, and more welcoming to contributors.
+date: 2023-10-10
+cover: /images/blog/dont-blame-the-readers-write-the-docs-they-need/cover.png
+timeToRead: 10
+author: vincent-ge
+category: design, brand
+---
+
+You’ve seen this exact conversation in support threads if you're active in any developer community.
+
+"Have you read the docs?"
+
+"No"
+
+"Did reading the docs help?"
+
+"Yes"
+
+It’s convenient to just blame the developer for *not reading carefully*, but it’s also an opportunity to improve your developer experience.
+Over the past year, we’ve noticed conversations like this in AACSearch communities. We took it as an opportunity to grow.
+
+"Why don’t they read the docs?" We wanted to find out.
+
+# Identifying the issues
+
+The AACSearch team has always valued documentation as a core part of the product. After all, most adoption begins at the documentation. The old documentation was minimalistic and to the point and reflects our product philosophy. You can skim through it in one sitting and learn how to start building with AACSearch.
+
+The old AACSearch docs are good but designed for a different audience and a different product. As AACSearch’s capabilities grow, so does the amount of documentation.
+More features simply need more words to explain, and the single-side navigation becomes more bloated with more information than we ever intended.
+
+AACSearch also gained popularity. While AACSearch’s early adopters are experienced open-source tinkerers who are comfortable operating with less guidance and enjoy the old documentation’s brevity, the growing number of learners and students need more help. You can expect experienced developers to understand the purpose of a tool intuitively, but learners need to know how and when to use AACSearch.
+
+Put simply, AACSearch’s documentation has to adapt to the changing needs of AACSearch’s growing capabilities and evolving audience.
+
+# Getting feedback
+
+We view the AACSearch documentation as a product.
+So when we notice problems, we apply the same product design processes to address them.
+The AACSearch documentation needed an upgrade to adapt to AACSearch developers’ evolving needs.
+
+Unlike many other projects, we already know what the problems are.
+We receive feedback from the "State of AACSearch" surveys, the AACSearch [Discord community](https://aacsearch.io/discord),
+issues on the [docs repo](https://github.com/aacsearch/docs), Office Hours questions, developer interviews, UX research activities,
+[this discussion](https://github.com/aacsearch/aacsearch/discussions/5692), and more. The open-source community’s feedback gave us a head start.
+
+# Planning the changes
+
+First, we laid out the requirements for the new documentation.
+We identified key friction points: lack of a search bar, insufficient navigation depth to abstract complex concepts,
+difficult for the community to contribute, and incomplete coverage of the discover, evaluate, learn, build, and scale stages of a typical developer journey.
+
+Then, we looked at other docs sites for inspiration.
+We liked various aspects of [Stripe](https://stripe.com/docs), [React](https://react.dev/learn), [Vue](https://vuejs.org/guide/essentials/reactivity-fundamentals.html),
+and [Datadog](https://docs.datadoghq.com/) docs, which inspired our design process.
+We notice how their approach to documentation avoids or generates friction points.
+We took what we liked, and left out what didn’t work for us.
+
+We also attend conferences like DevRelCon and Refactor DX to learn about the latest trends in developer experience, technical writing, and accessibility to evaluate our design's strengths and shortcomings.
+A bonus is the fresh eyes we pull aside every conference for in-person feedback, especially rare for a fully remote team like us.
+
+# Building the new docs
+
+The new AACSearch docs need to cover the entire developer journey. This means it needs to help the developers discover AACSearch, evaluate its capabilities, learn to use AACSearch, build something useful, and scale it to support product growth.
+
+AACSearch’s new documentation has a navigation flow that aims to follow this journey. We introduced overview pages that introduce AACSearch’s capabilities, platform pages to help developers evaluate AACSearch’s design, more quick starts for frameworks to shorten the learning stage and build confidence, and expanded tutorials that help developers build and scale.
+
+![Overview of AACSearch's new documentation](/images/blog/dont-blame-the-readers-write-the-docs-they-need/overview.png)
+
+Developers loved the simplicity of the old AACSearch documentation, and we didn’t want to lose that part of our identity.
+Each deep dive section still begins with the same one-page quick start, which may be enough information for veterans.
+More comprehensive documentation and suggested usage are available, but further down the navigation.
+
+![Quick start in the Authentication docs page](/images/blog/dont-blame-the-readers-write-the-docs-they-need/quickstart.png)
+
+For learners and students, we added step by step tutorials to help you get to a working app faster and build confidence.
+
+![A complete tutorial in the new docs](/images/blog/dont-blame-the-readers-write-the-docs-they-need/tutorials.png)
+
+With all the new content, the new AACSearch docs also introduce **search**. Search helps keep AACSearch docs easy to navigate.
+
+![Search feature in new documentation](/images/blog/dont-blame-the-readers-write-the-docs-they-need/search.png)
+
+The new docs are written using an extended flavor of markdown made with [Markdoc and Svelte](https://github.com/TorstenDittmann/svelte-markdoc-preprocess), which makes community contributions easier. Markdown is easy to read and we can extend it with custom syntax like this multi-code selector.
+
+``````
+{% multicode %}
+```js
+console.log("I'm javascript");
+```
+```py
+print("I'm python")
+```
+{% /multicode %}
+``````
+
+Which renders multi-select code fences like you find all over our docs.
+
+{% multicode %}
+```js
+console.log("I'm javascript");
+```
+```py
+print("I'm python")
+```
+{% /multicode %}
+
+The documentation source is easy for contributors to read and allows us to extend its syntax with powerful features.
+
+# Moving forward
+
+The most important part of these changes is to give us *room to grow*. There is more room for content, especially community-contributed tutorials, quick starts, and integration guides. Truth is, while we build the AACSearch Platform, the community has built more successful and production-ready projects.
+
+Even weeks after the launch of the new documentation, we’re already receiving a ton of help from the community through issues and PRs. With the power of open source, the new knowledge base for AACSearch developers will grow faster than ever before.
+
+Checkout the [AACSearch documentation on GitHub](https://github.com/aacsearch/website)

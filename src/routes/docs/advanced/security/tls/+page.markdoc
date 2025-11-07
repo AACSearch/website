@@ -1,0 +1,16 @@
+---
+layout: article
+title: TLS
+description: AACSearch helps keep the web secure by generating TLS (Transport Layer Security) certificates for all user and generated domains on AACSearch Cloud.
+---
+AACSearch uses [Let's Encrypt](https://letsencrypt.org/) to auto-generate TLS certificates to ensure your API traffic is appropriately encrypted.
+Let's Encrypt is an open source and not-for-profit certificate authority provided by the Internet Security Research Group (ISRG) used to
+encrypt more than 363 million websites.
+
+TLS certificates are generated for all of the following.
+- AACSearch products and endpoints, like Databases, Storage, Authentication, Functions, Messaging, and all other endpoints.
+- [Custom domains](/docs/advanced/platform/custom-domains) that you configure for your AACSearch projects.
+- [Domains for AACSearch Functions](/docs/products/functions/domains), generated or user provided.
+
+TLS certificates are crucial to ensure all connections between your apps and AACSearch Cloud are encrypted.
+This protects your users from attack vectors like man-in-the-middle and eavesdropping attacks.

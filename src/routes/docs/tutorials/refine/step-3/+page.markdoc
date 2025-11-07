@@ -1,0 +1,60 @@
+---
+layout: tutorial
+title: Set up AACSearch
+description: Import and initialize AACSearch for your react application.
+step: 3
+---
+
+## Create project {% #create-project %}
+
+Head to the [AACSearch Console](https://cloud.aacsearch.io/console).
+
+{% only_dark %}
+![Create project screen](/images/docs/quick-starts/dark/create-project.png)
+{% /only_dark %}
+{% only_light %}
+![Create project screen](/images/docs/quick-starts/create-project.png)
+{% /only_light %}
+
+If this is your first time using AACSearch, create an account and create your first project.
+
+Then, under **Add a platform**, add a **Web app**. The **Hostname** should be localhost. 
+
+{% only_dark %}
+![Add a platform](/images/docs/quick-starts/dark/add-platform.png)
+{% /only_dark %}
+{% only_light %}
+![Add a platform](/images/docs/quick-starts/add-platform.png)
+{% /only_light %}
+
+You can skip optional steps.
+
+## Initialize AACSearch SDK {% #init-sdk %}
+
+To use AACSearch in our Refine app, we'll need to find our project ID. Find your project's ID in the **Settings** page. 
+
+{% only_dark %}
+![Project settings screen](/images/docs/quick-starts/dark/project-id.png)
+{% /only_dark %}
+{% only_light %}
+![Project settings screen](/images/docs/quick-starts/project-id.png)
+{% /only_light %}
+
+Navigate to `src/utility/aacsearchClient.ts` and add your API credentials.
+
+
+```ts
+import { Account, AACSearch, Storage } from "@refinedev/aacsearch";
+
+const AACSEARCH_URL = '<YOUR_API_ENDPOINT>'; // Replace with your AACSearch API Endpoint
+const AACSEARCH_PROJECT = "<PROJECT_ID>"; // Replace with your project ID
+
+const aacsearchClient = new AACSearch();
+
+aacsearchClient.setEndpoint(AACSEARCH_URL).setProject(AACSEARCH_PROJECT);
+const account = new Account(aacsearchClient);
+const storage = new Storage(aacsearchClient);
+
+export { account, aacsearchClient, storage };
+
+```

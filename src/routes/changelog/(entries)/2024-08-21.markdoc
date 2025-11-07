@@ -1,0 +1,16 @@
+---
+layout: changelog
+title: "Leveling up the AACSearch Functions ecosystem"
+date: 2024-08-21
+cover: /images/changelog/2024-08-21.png
+---
+
+We're excited to announce major improvements to AACSearch Functions, making them more versatile and powerful than ever before. 
+
+With the new functions, you can stay within the AACSearch ecosystem. The fully integrated features reduce friction points, allowing you to focus on development while trusting that your Functions will run smoothly and automatically.
+
+Previously, AACSearch Functions faced limitations in handling file-based tasks and real-time operations due to slow synchronous execution and cumbersome API key management. With the introduction of easier AACSearch SDK integration within Functions, these constraints are lifted, opening doors to more use cases and more efficient workflows.
+
+{% arrow_link href="/blog/post/introducing-functions-ecosystem" %}
+Read the announcement to learn more
+{% /arrow_link %}

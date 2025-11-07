@@ -1,0 +1,415 @@
+---
+layout: article
+title: SDKs
+description: Get started with AACSearch SDKs and learn how to use them to add authentication, user management, file storage, and more to your apps.
+---
+
+AACSearch provides SDK libraries for major programming languages and platforms so you don't have to write code for interacting with our API protocols from scratch.
+
+We're always working on improving and extending the current stack of available platforms and SDKs, listed below is a list of official libraries the AACSearch team is maintaining.
+
+# Client {% #client %}
+
+Client libraries for integrating with AACSearch to build client-based applications and websites. Read one of the many [quick starts](/docs/quick-starts) guides for your framework of choice to start building your first application.
+
+{% table %}
+* &nbsp; {% width=48 %}
+* Platform
+* GitHub Repository
+* &nbsp; {% width=80 %}
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/javascript.svg" alt="Javascript logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/javascript.svg" alt="Javascript logo" size="m" /%}{% /only_light %}
+* Web SDK `21.0.0`
+* [aacsearch/sdk-for-web](https://github.com/aacsearch/sdk-for-web)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/flutter.svg" alt="Flutter logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/flutter.svg" alt="Flutter logo" size="m" /%}{% /only_light %}
+* Flutter SDK `20.0.0`
+* [aacsearch/sdk-for-flutter](https://github.com/aacsearch/sdk-for-flutter)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/react.svg" alt="React logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/react.svg" alt="React logo" size="m" /%}{% /only_light %}
+* React Native SDK `0.15.0`
+* [aacsearch/sdk-for-react-native](https://github.com/aacsearch/sdk-for-react-native)
+* `beta`
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/apple.svg" alt="Apple logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/apple.svg" alt="Apple logo" size="m" /%}{% /only_light %}
+* Apple SDK `13.0.0`
+* [aacsearch/sdk-for-apple](https://github.com/aacsearch/sdk-for-apple)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/android.svg" alt="Android logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/android.svg" alt="Android logo" size="m" /%}{% /only_light %}
+* Android SDK `11.0.0`
+* [aacsearch/sdk-for-android](https://github.com/aacsearch/sdk-for-android)
+* 
+{% /table %}
+
+# Server {% #server %}
+
+Server libraries for integrating with AACSearch to build server side integrations or use inside your [AACSearch Functions](/docs/products/functions). Read one of the many [quick starts](/docs/quick-starts) guides for your language/runtime of choice to start building your first server integration.
+
+{% table %}
+* &nbsp; {% width=48 %}
+* Platform
+* GitHub Repository
+* &nbsp; {% width=80 %}
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/nodejs.svg" alt="Node.js logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/nodejs.svg" alt="Node.js logo" size="m" /%}{% /only_light %}
+* Node.js SDK `20.0.0`
+* [aacsearch/sdk-for-node](https://github.com/aacsearch/sdk-for-node)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/python.svg" alt="Python logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/python.svg" alt="Python logo" size="m" /%}{% /only_light %}
+* Python SDK `13.2.0`
+* [aacsearch/sdk-for-python](https://github.com/aacsearch/sdk-for-python)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/dart.svg" alt="Dart logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/dart.svg" alt="Dart logo" size="m" /%}{% /only_light %}
+* Dart SDK `19.0.0`
+* [aacsearch/sdk-for-dart](https://github.com/aacsearch/sdk-for-dart)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/php.svg" alt="PHP logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/php.svg" alt="PHP logo" size="m" /%}{% /only_light %}
+* PHP SDK `17.2.0`
+* [aacsearch/sdk-for-php](https://github.com/aacsearch/sdk-for-php)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/ruby.svg" alt="Ruby logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/ruby.svg" alt="Ruby logo" size="m" /%}{% /only_light %}
+* Ruby SDK `19.0.0`
+* [aacsearch/sdk-for-ruby](https://github.com/aacsearch/sdk-for-ruby)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/dotnet.svg" alt=".NET logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/dotnet.svg" alt=".NET logo" size="m" /%}{% /only_light %}
+* .NET SDK `0.19.0`
+* [aacsearch/sdk-for-dotnet](https://github.com/aacsearch/sdk-for-dotnet)
+* `beta`
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/go.svg" alt="Go logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/go.svg" alt="Go logo" size="m" /%}{% /only_light %}
+* Go SDK `0.13.0`
+* [aacsearch/sdk-for-go](https://github.com/aacsearch/sdk-for-go)
+* `beta`
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/swift.svg" alt="Swift logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/swift.svg" alt="Swift logo" size="m" /%}{% /only_light %}
+* Swift SDK `13.0.0`
+* [aacsearch/sdk-for-swift](https://github.com/aacsearch/sdk-for-swift)
+* 
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/kotlin.svg" alt="Kotlin logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/kotlin.svg" alt="Kotlin logo" size="m" /%}{% /only_light %}
+* Kotlin SDK `12.0.0`
+* [aacsearch/sdk-for-kotlin](https://github.com/aacsearch/sdk-for-kotlin)
+* 
+{% /table %}
+
+If you would like to help us extend our platforms and SDKs stack, you are more than welcome to contact us or contribute to the [AACSearch SDK Generator](https://github.com/aacsearch/sdk-generator) project GitHub repository and read our contribution guide.
+
+# Protocols {% #protocols %}
+We are always looking to add new SDKs to our platform. If the SDK you are looking for is still missing, labeled as beta or experimental, or you simply do not want to integrate with an SDK, you can always integrate with AACSearch directly using any standard HTTP, GraphQL, or WebSocket clients and the relevant AACSearch protocol.
+
+AACSearch supports multiple API protocols for maximum flexibility and developer convenience. You can learn more about how to integrate directly with them using one of the following available guides:
+
+{% cards %}
+{% cards_item href="/docs/apis/realtime" title="Realtime API" %}
+Integrate with the AACSearch Realtime API
+{% /cards_item %}
+
+{% cards_item href="/docs/apis/rest" title="REST API" %}
+Integrate with the AACSearch REST API
+{% /cards_item %}
+
+{% cards_item href="/docs/apis/graphql" title="GraphQL API" %}
+Integrate with the AACSearch GraphQL API
+{% /cards_item %}
+{% /cards %}
+
+# Utility classes {% #utility-classes %}
+AACSearch's SDKs provide useful utility classes to make your development experience easier.
+Use these classes and methods to reduce guess work and get better code suggestions in your IDE.
+
+## IDs {% #ids %}
+AACSearch has utility classes to help you handle IDs. 
+These generate the correct ID format to be passed to the AACSearch APIs.
+
+{% tabs %}
+{% tabsitem #client title="Client SDKs" %}
+{% multicode %}
+```client-web
+import { Client, Account } from "aacsearch";
+
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+```client-flutter
+import 'package:aacsearch/aacsearch.dart';
+
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom()
+```
+```client-apple
+import AACSearch
+
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+```client-android-kotlin
+import io.aacsearch.ID
+
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+{% /multicode %}
+{% /tabsitem %}
+
+{% tabsitem #server title="Server SDKs" %}
+{% multicode %}
+```server-nodejs
+const sdk = require('node-aacsearch');
+
+// Generate a unique ID
+sdk.ID.unique()
+
+// Generate a custom ID
+sdk.ID.custom("my-custom-id")
+
+```
+```deno
+import * as sdk from "npm:node-aacsearch";
+// Generate a unique ID
+sdk.ID.unique()
+
+// Generate a custom ID
+sdk.ID.custom("my-custom-id")
+```
+```php
+<?php
+
+use AACSearch\ID;
+
+// Generate a unique ID
+ID::unique()
+
+// Generate a custom ID
+ID::custom("my-custom-id")
+```
+```python
+from aacsearch.id import ID
+
+# Generate a unique ID
+ID.unique()
+
+# Generate a custom ID
+ID.custom("my-custom-id")
+```
+```csharp
+using AACSearch.ID;
+
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+```dart
+import 'package:dart_aacsearch/dart_aacsearch.dart';
+
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+```java
+io.aacsearch.ID
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+```kotlin
+io.aacsearch.ID
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+```ruby
+require 'aacsearch'
+
+include AACSearch
+ß
+# Generate a unique ID
+ID.unique()
+
+# Generate a custom ID
+ID.custom("my-custom-id")
+```
+```swift
+import AACSearch
+// Generate a unique ID
+ID.unique()
+
+// Generate a custom ID
+ID.custom("my-custom-id")
+```
+{% /multicode %}
+{% /tabsitem %}
+{% /tabs %}
+
+AACSearch generates unique IDs that are both **random** and **ordered**. 
+AACSearch IDs combine a timestamp prefix based on microseconds and a random UID string, formatted as `<timestamp_hex><uid_hex>`.
+
+## Enums {% #enums %}
+AACSearch has enumeration classes for predefined strings used different parameters used for the AACSearch APIs.
+
+These enums are available for authenticator type, name, OAuth provider, 
+password hash types, browsers, authentication factors, index types, credit cards, 
+image gravity, image format, relationship types, SMTP encryption, Function runtime, 
+messaging provider type, compression algorithms, execution methods, and country flags.
+{% tabs %}
+{% tabsitem #client title="Client SDKs" %}
+You can discover the available enums in each SDK at the source.
+
+{% table %}
+* &nbsp; {% width=48 %}
+* Platform
+* Enums
+* &nbsp; {% width=80 %}
+
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/javascript.svg" alt="Javascript logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/javascript.svg" alt="Javascript logo" size="m" /%}{% /only_light %}
+* Web SDK `14.0.1`
+* [aacsearch/sdk-for-web](https://github.com/aacsearch/sdk-for-web/tree/dev/src/enums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/flutter.svg" alt="Flutter logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/flutter.svg" alt="Flutter logo" size="m" /%}{% /only_light %}
+* Flutter SDK `12.0.3`
+* [aacsearch/sdk-for-flutter](https://github.com/aacsearch/sdk-for-flutter/tree/dev/lib/src/enums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/react.svg" alt="React logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/react.svg" alt="React logo" size="m" /%}{% /only_light %}
+* React Native SDK `0.1.0`
+* [aacsearch/sdk-for-react-native](https://github.com/aacsearch/sdk-for-react-native)
+* `beta`
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/apple.svg" alt="Apple logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/apple.svg" alt="Apple logo" size="m" /%}{% /only_light %}
+* Apple SDK `5.0.0`
+* [aacsearch/sdk-for-apple](https://github.com/aacsearch/sdk-for-apple/tree/dev/Sources/AACSearchEnums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/android.svg" alt="Android logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/android.svg" alt="Android logo" size="m" /%}{% /only_light %}
+* Android SDK `5.1.0`
+* [aacsearch/sdk-for-android](https://github.com/aacsearch/sdk-for-android/tree/dev/library/src/main/java/io/aacsearch/enums)
+*
+{% /table %}
+{% /tabsitem %}
+
+{% tabsitem #server title="Server SDKs" %}
+You can discover the available enums in each SDK at the source.
+
+{% table %}
+* &nbsp; {% width=48 %}
+* Platform
+* Enums
+* &nbsp; {% width=80 %}
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/nodejs.svg" alt="Node.js logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/nodejs.svg" alt="Node.js logo" size="m" /%}{% /only_light %}
+* Node.js SDK `14.1.0`
+* [aacsearch/sdk-for-node](https://github.com/aacsearch/sdk-for-node/tree/dev/lib/enums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/python.svg" alt="Python logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/python.svg" alt="Python logo" size="m" /%}{% /only_light %}
+* Python SDK `6.1.0`
+* [aacsearch/sdk-for-python](https://github.com/aacsearch/sdk-for-python/tree/dev/aacsearch/enums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/dart.svg" alt="Dart logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/dart.svg" alt="Dart logo" size="m" /%}{% /only_light %}
+* Dart SDK `12.1.0`
+* [aacsearch/sdk-for-dart](https://github.com/aacsearch/sdk-for-dart/blob/dev/lib/enums.dart)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/php.svg" alt="PHP logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/php.svg" alt="PHP logo" size="m" /%}{% /only_light %}
+* PHP SDK `12.1.0`
+* [aacsearch/sdk-for-php](https://github.com/aacsearch/sdk-for-php/tree/dev/src/AACSearch/Enums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/ruby.svg" alt="Ruby logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/ruby.svg" alt="Ruby logo" size="m" /%}{% /only_light %}
+* Ruby SDK `12.1.0`
+* [aacsearch/sdk-for-ruby](https://github.com/aacsearch/sdk-for-ruby/tree/dev/lib/aacsearch/enums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/dotnet.svg" alt=".NET logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/dotnet.svg" alt=".NET logo" size="m" /%}{% /only_light %}
+* .NET SDK `0.10.1`
+* [aacsearch/sdk-for-dotnet](https://github.com/aacsearch/sdk-for-dotnet/tree/dev/src/AACSearch/Enums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/go.svg" alt="Go logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/go.svg" alt="Go logo" size="m" /%}{% /only_light %}
+* Go SDK `0.2.0`
+* [aacsearch/sdk-for-go](https://github.com/aacsearch/sdk-for-go)
+* `beta`
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/swift.svg" alt="Swift logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/swift.svg" alt="Swift logo" size="m" /%}{% /only_light %}
+* Swift SDK `6.1.0`
+* [aacsearch/sdk-for-swift](https://github.com/aacsearch/sdk-for-swift/tree/dev/Sources/AACSearchEnums)
+*
+---
+* {% only_dark %}{% icon_image src="/images/platforms/dark/kotlin.svg" alt="Kotlin logo" size="m" /%}{% /only_dark %}
+{% only_light %}{% icon_image src="/images/platforms/kotlin.svg" alt="Kotlin logo" size="m" /%}{% /only_light %}
+* Kotlin SDK `6.1.0`
+* [aacsearch/sdk-for-kotlin](https://github.com/aacsearch/sdk-for-kotlin/tree/dev/src/main/kotlin/io/aacsearch/enums)
+*
+{% /table %}
+{% /tabsitem %}
+{% /tabs %}
+
+## Queries and permissions {% #queries-and-permissions %}
+AACSearch has utility classes for queries and permissions. 
+You can learn more about [query utility classes](/docs/products/databases/queries) and [permissions utility classes](/docs/advanced/platform/permissions) in their own pages.
+
+## File I/O {% #file-io %}
+Depending on your platform, you will also need some helpers to interface with system I/O.
+Learn more about [storage input file classes](/docs/products/storage/upload-download#input-file).
+
+# Community {% #community %}
+If you have created your own framework or any other technology specific integration and would like us to list it here please [contact us](/contact-us).
+
+If you would like to help us expand AACSearch's list of SDKs, you can contribute to AACSearch's [SDK Generator](https://github.com/aacsearch/sdk-generator) project on GitHub and read our [contribution guide](https://github.com/aacsearch/sdk-generator/blob/master/CONTRIBUTING.md).

@@ -1,0 +1,10 @@
+---
+layout: article
+title: Authentication
+description: Learn how AACSearch protects your passwords and helps users pick better passwords.
+---
+
+AACSearch helps you implement secure authentication in your applications by using password hashing to protect passwords in storage.
+AACSearch also provides tools to help users pick better passwords, making them harder to break.
+
+{% partial file="auth-security.md" /%}

@@ -1,0 +1,108 @@
+---
+layout: tutorial
+title: Initialize SDK
+description: Add authentication to a Nuxt project using AACSearch.
+step: 3
+---
+Before you can use AACSearch, you need to create the AACSearch `Client` and set the project ID and endpoint.
+The client is then used to create services like `Databases` and `Account`, so they all point to the same AACSearch project.
+
+Create a function to the build services you need in a file like `server/lib/aacsearch.js` and **exporting the instances**.
+
+As part of the function, set the current user's session if they are logged in. This is done by accessing the session cookie from the request and calling the `setSession(session)` with the cookie value.
+
+{% info title="AACSearch client security" %}
+We recommend creating a new `Client` instance for each request.
+When using AACSearch in server-integrations, it's important to **never share a `Client` instance** between two requests.
+Doing so could create security vulnerabilities.
+{% /info %}
+
+```js
+// server/lib/aacsearch.js
+import { Client, Account } from "node-aacsearch";
+
+export const SESSION_COOKIE = "my-custom-session";
+
+export function createAdminClient() {
+  const client = new Client()
+    .setEndpoint(process.env.PUBLIC_AACSEARCH_ENDPOINT)
+    .setProject(process.env.PUBLIC_AACSEARCH_PROJECT)
+    .setKey(process.env.AACSEARCH_KEY);
+
+  return {
+    get account() {
+      return new Account(client);
+    },
+  };
+}
+
+export function createSessionClient(event) {
+  const config = useRuntimeConfig(event);
+
+  const client = new Client()
+    .setEndpoint(config.public.aacsearchEndpoint)
+    .setProject(config.public.aacsearchProjectId);
+
+  const session = getCookie(event, SESSION_COOKIE);
+  if (session) {
+    client.setSession(session);
+  }
+
+  return {
+    get account() {
+      return new Account(client);
+    },
+  };
+}
+```
+
+`config.aacsearchApiKey`, `config.public.aacsearchEndpoint` and `config.public.aacsearchProjectId` are Nuxt runtime configuration variables. Create a [nuxt.config.js](https://nuxt.com/docs/api/configuration/nuxt-config) file in the root of your project and add the following code to set the runtime configuration.
+
+```js
+export default defineNuxtConfig({
+  runtimeConfig: {
+    aacsearchKey: process.env.AACSEARCH_KEY,
+    public: {
+      aacsearchEndpoint: process.env.PUBLIC_AACSEARCH_ENDPOINT,
+      aacsearchProjectId: process.env.PUBLIC_AACSEARCH_PROJECT,
+    },
+  },
+});
+```
+
+Now you can use `.env` files to set the environment variables for your project. Retrieve the values for these variables from the AACSearch console.
+
+The `PUBLIC_AACSEARCH_ENDPOINT` is the endpoint of your AACSearch project, and the `PUBLIC_AACSEARCH_PROJECT` is the ID of the project you want to use.
+You can get the values for these variables from the AACSearch console.
+
+{% only_dark %}
+![Create project screen](/images/docs/quick-starts/dark/create-project.png)
+{% /only_dark %}
+
+{% only_light %}
+![Create project screen](/images/docs/quick-starts/create-project.png)
+{% /only_light %}
+
+The `AACSEARCH_KEY` is an AACSearch API key with the necessary permissions to create new sessions.
+
+For this tutorial you'll need an API key with the following scopes:
+
+| Category  {% width=120 %}                              | Required scopes                                        | Purpose                                                |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| Sessions                                               | `sessions.write`                                       | Allows API key to create, update, and delete sessions. |
+
+{% only_dark %}
+![Server integrations](/images/docs/quick-starts/dark/integrate-server.png)
+{% /only_dark %}
+
+{% only_light %}
+![Server integrations](/images/docs/quick-starts/integrate-server.png)
+{% /only_light %}
+
+For example, your `.env` might look something similar to this.
+
+```env
+AACSEARCH_KEY=<YOUR_API_KEY>
+PUBLIC_AACSEARCH_ENDPOINT=https://<REGION>.cloud.aacsearch.io/v1
+PUBLIC_AACSEARCH_PROJECT=<PROJECT_ID>
+```

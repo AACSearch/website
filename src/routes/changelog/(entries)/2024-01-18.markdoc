@@ -1,0 +1,12 @@
+---
+layout: changelog
+title: Updates to AI assistant
+date: 2024-01-18
+cover: /images/changelog/2024-01-18.png
+---
+
+We've updated our AI assistant. It's now trained on the latest available documentation and examples. Additionally, AACSearch Assistant now displays a list of relevant documentation pages with each query.
+
+{% arrow_link href="https://github.com/aacsearch/assistant" %}
+Learn more about AACSearch Assistant on GitHub
+{% /arrow_link %}

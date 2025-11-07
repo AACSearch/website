@@ -1,0 +1,18 @@
+---
+layout: changelog
+title: "Introducing AACSearch MCP: A new way to manage your AACSearch project with AI"
+date: 2025-03-11
+---
+
+AACSearch now supports AI-driven project interactions with the introduction of **AACSearch MCP**. This server enables AI assistants to query databases and trigger actions within AACSearch projects.
+
+With AACSearch MCP, AI assistants can:
+- Retrieve and analyze database records.
+- Access the User API
+- Perform actions directly on your AACSearch project.
+
+This feature opens up new possibilities for automation and AI workflows, making it easier to interact with your AACSearch projects.
+
+{% arrow_link href="/docs/tooling/mcp?doFollow=true" %}  
+Learn more in the documentation
+{% /arrow_link %}

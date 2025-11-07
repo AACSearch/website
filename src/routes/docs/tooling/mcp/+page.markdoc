@@ -1,0 +1,41 @@
+---
+layout: article
+title: Model Context Protocol
+description: Enable LLMs and code-generation tools to interact with your AACSearch project
+---
+
+AACSearch offers [Model Context Protocol](https://modelcontextprotocol.io) (MCP) servers that allow LLMs to directly interact with AACSearch's API and docs. Using MCP servers, you can use applications such as Claude Desktop, Cursor, Windsurf Editor, etc. to operate on your AACSearch project as well as gain context about the latest updates to AACSearch's SDKs, APIs, and CLI.
+
+# What is MCP?
+
+The Model Context Protocol (MCP) is an open standard that enables Large Language Models (LLMs) and AI code-generation tools to interact with APIs and documentation in a structured manner. MCP servers provide a bridge between LLMs and external services, allowing them to perform actions such as querying databases, managing users, and accessing files.
+
+The key benefits of using MCP servers include:
+
+- **Enhanced capabilities**: LLMs can perform complex tasks by interacting with APIs, going beyond simple text generation.
+- **Improved context**: By accessing up-to-date documentation and API definitions, LLMs can provide more accurate and relevant responses.
+- **Seamless integration**: MCP servers can be easily integrated with popular AI tools and code editors, enhancing their functionality.
+
+# Available MCP servers
+
+AACSearch currently offers the following MCP servers:
+
+{% cards %}
+
+{% cards_item href="/docs/tooling/mcp/api" title="MCP server for AACSearch API" icon="icon-globe-alt"%}
+{% /cards_item %}
+
+{% cards_item href="/docs/tooling/mcp/docs" title="MCP server for AACSearch docs" icon="icon-document-text" %}
+{% /cards_item %}
+
+{% /cards %}
+
+## Why use AACSearch's MCP servers?
+
+Some **popular use cases** for AACSearch's MCP servers include:
+
+- **Code generation**: Automatically generate code snippets or entire files based on user input and context.
+- **Documentation lookup**: Quickly find relevant documentation for specific API endpoints or SDK features.
+- **Project management**: Create, update, or delete resources in your AACSearch project using natural language commands.
+- **Debugging assistance**: Get help with debugging issues by providing context about your project and recent changes.
+- **Learning and exploration**: Explore AACSearch's features and capabilities through interactive conversations with LLMs.

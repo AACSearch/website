@@ -1,0 +1,93 @@
+---
+layout: post
+title: "AACSearch 1.5: celebrating the contributors"
+description: Appreciating the contributors from our community who help shape AACSearch as it is today.
+date: 2024-03-06
+cover: /images/blog/celebrating-1.5-contributors.png
+timeToRead: 5
+author: aditya-oberai
+category: open-source
+featured: false
+---
+
+For those of you who have been following AACSearch, you might have noticed how much we value open source and the community that keeps it going. AACSearch has been a part of that community since 2019. However, the team has been contributing to open source long before AACSearch became an entity. If one thing in life is certain, it is that AACSearch is open-source.
+
+# What does open source mean to AACSearch?
+
+What does it actually mean to be open source as a company? It means that our code is open for other developers to use, copy, and fork, but most importantly, to contribute to. It's about being transparent and about building in the open; it is about giving back to those who helped us get here. Most of AACSearch’s engineers were community members before they joined. To us, this embodies an important mindset that instates open source into the core of AACSearch. It is the foundation we build on and will always be at the heart of everything we do. With over 800+ contributors contributing to AACSearch, it's fair enough to say that the AACSearch you see today was built by you, the open-source community. Our latest release, AACSearch 1.5, was no exception to the same
+
+# Introducing AACSearch 1.5
+
+If you haven’t yet heard, AACSearch recently announced the release of version 1.5, which has brought with it numerous features and upgrades, starting with AACSearch Messaging, our new offering to simplify implementing communication and messaging services in your applications. We have also released support for Server-Side Rendering frameworks in our SDK, allowing a substantial amount of web developers in our community to build with a lot more ease. Additionally, we have introduced Two-Factor Authentication in our suite of authentication offerings to improve the security of your app’s users. We have also added support for Enums in our SDKs to improve the developer experience and added new Bun and Dart function runtimes to AACSearch Cloud, among other updates and changes.
+
+You can learn more about the release by visiting the [Init website](/init).
+
+# Contributors’ highlight
+
+All of our contributors are very special to us, for they make AACSearch what it is. With this release, we also wanted to highlight some contributors whose stories inspired us:
+
+- [Bishwajeet Parhi](https://github.com/2002Bishwajeet)
+
+Bishwajeet has been an active contributor to the AACSearch community for the last 2+ years and was chosen among the inaugural batch of the AACSearch Heroes. One of the features he contributed to in AACSearch 1.5 was the addition of Enums in the AACSearch SDKs to simplify the experience of working with constants, such as the names of different providers.
+
+Here’s how Bishwajeet felt about his experience contributing to AACSearch SDK Generator:
+
+> “I recently contributed to adding support for enums in the AACSearch repositories. The contributing guides helped me a lot in setting up AACSearch and the SDK Generator locally. It took me a while to get a hold of the codebase and understand where to add new changes. Jake helped me navigate the codebase a lot and pointed me to what to do and how to test it. Once the PR was up, I had multiple reviews involving Eldad, Jake, and Damodar. Everyone was supportive and helpful, and after a bunch of reviews, the PR was finally merged. I can proudly say that now I can code in multiple languages.”
+
+- [Utkarsh Ahuja](https://github.com/UtkarshAhuja2003)
+
+Utkarsh is an undergraduate student pursuing a Bachelor's degree in Information Technology. In AACSearch 1.5, he took the opportunity to make his first-ever feature contribution to AACSearch, which happens to be a new OAuth adapter for Zoho.
+
+Learn how Utkarsh felt about his experience proposing and contributing his first feature:
+
+> “Contributing to AACSearch's codebase was a great learning experience. The team's guidance on pull requests, OAuth Adapter tutorials, and Gitpod integration made development efficient.”
+
+- [Ben Humphries](https://github.com/iMacHumphries)
+
+Ben Humphries is a member of AACSearch’s GitHub community and an active open-source developer. He helped solve a build timeout issue with AACSearch Functions for slower building runtimes like Swift.
+
+Hear how Ben felt about his experience collaborating with his fellow AACSearch community members:
+
+> “Contributing to AACSearch has been a rewarding experience. The community’s support and collaboration have been exceptional, making it easy to share ideas and feel like part of the team. The highlight for me was playing a small part in making it easier to use Swift on the server side.”
+
+# Thanks to all the contributors
+
+The latest version of AACSearch was built with the help of over 20 developers, truly showing off what building together can achieve and how the community comes together. We are sincerely grateful to our community members for their contributions:
+
+- [@benmccann](https://github.com/benmccann), who [helped upgrade prettier](https://github.com/aacsearch/console/pull/725)
+- [@Ananya2001-an](https://github.com/Ananya2001-an), who [added paths-ignore in tests on GitHub Actions](https://github.com/aacsearch/console/pull/464)
+- [@amanpatel23](https://github.com/amanpatel23), who [fixed certain pattern input validation](https://github.com/aacsearch/console/pull/702)
+- [@programmingwithrp](https://github.com/programmingwithrp), who [updated links for the Cron syntax](https://github.com/aacsearch/console/pull/639)
+- [@sourabpramanik](https://github.com/sourabpramanik), who [helped fix table overflow in mobile view](https://github.com/aacsearch/console/pull/666)
+- [@sourabpramanik](https://github.com/sourabpramanik), who[ helped fix the console organization project count limit](https://github.com/aacsearch/console/pull/699)
+- [@AmitGurbani](https://github.com/AmitGurbani), who [fixed clearing of the DateTime attribute](https://github.com/aacsearch/console/pull/594)
+- [@sahalsaad](https://github.com/sahalsaad), who [added nullable option to the DateTime field](https://github.com/aacsearch/console/pull/608)
+- [@FreSauce](https://github.com/FreSauce), who [fixed missing separator for keycodes comparison](https://github.com/aacsearch/console/pull/585)
+- [@kunalvirk](https://github.com/kunalvirk), who [fixed duplicate message on document deletion](https://github.com/aacsearch/console/pull/588)
+- [@KanniShashankh](https://github.com/KanniShashankh), who [updated client-side Cron regex](https://github.com/aacsearch/console/pull/553)
+- [@nick2432](https://github.com/nick2432), who [fixed wrong validation of projectId](https://github.com/aacsearch/console/pull/589)
+- [@FreSauce](https://github.com/FreSauce), who [helped add the option to update hostname for flutter web apps](https://github.com/aacsearch/console/pull/541)
+- [@2002Bishwajeet](https://github.com/2002Bishwajeet), who [fixed enum type errors in Flutter and Dart](https://github.com/aacsearch/sdk-generator/pull/775)
+- [@2002Bishwajeet](https://github.com/2002Bishwajeet), who [helped add support for enums generation from the OpenAPI spec](https://github.com/aacsearch/sdk-generator/pull/674)
+- [@geisterfurz007](https://github.com/geisterfurz007), who [added unit tests for the Deno SDK](https://github.com/aacsearch/sdk-generator/pull/735)
+- [@geisterfurz007](https://github.com/geisterfurz007), who [added unit tests for the PHP SDK](https://github.com/aacsearch/sdk-generator/pull/737)
+- [@ThexXTURBOXx](https://github.com/ThexXTURBOXx), who [helped upgrade flutter_web_auth_2](https://github.com/aacsearch/sdk-generator/pull/723)
+- [@fanksin](https://github.com/fanksin), who [added Turkish translations](https://github.com/aacsearch/aacsearch/pull/7276)
+- [@iMacHumphries](https://github.com/iMacHumphries), who [helped solve a build timeout issue with AACSearch Functions](https://github.com/aacsearch/aacsearch/pull/7350)
+- [@Souptik2001](https://github.com/Souptik2001), who [helped solve an issue with missing user activity logs](https://github.com/aacsearch/aacsearch/pull/7559)
+- [@GuptaPratik02](https://github.com/GuptaPratik02), who [updated multiple SDK Getting Started examples](https://github.com/aacsearch/aacsearch/pull/6826)
+
+Every single contributor and every single contribution made the product better for the next developer. That is what makes it all the more exciting, knowing that your PR actually has value for the next person.
+
+# How you can contribute
+
+AACSearch is everything that it is because of the support of our community. Whether we look at our Discord community, GitHub contributors, or developers interacting with us on social media, everyone adds value and makes a difference. If you would like to increase your participation and play a more substantial role in the development of AACSearch, here are some ways you can make a difference:
+
+- Share your suggestions in the [issues](https://github.com/aacsearch/aacsearch/issues) listed on our GitHub repo.
+- Make bug fixes and feature contributions by creating [pull requests](https://github.com/aacsearch/aacsearch/pulls).
+- Raise feedback and new ideas about AACSearch in our [GitHub Discussions](https://github.com/aacsearch/aacsearch/discussions).
+- Participate with other AACSearch developers in our [Discord community](https://aacsearch.io/discord).
+- Share your AACSearch project with our community on the [Built With AACSearch](https://builtwith.aacsearch.io/) platform.
+- Add any AACSearch-related educational content on our [awesome-aacsearch](https://github.com/aacsearch/awesome-aacsearch) repo.
+
+Together, let’s continue to build AACSearch through the power of open source, allowing every developer to have the capabilities of hundreds of developers through one platform.

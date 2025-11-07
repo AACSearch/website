@@ -1,0 +1,20 @@
+---
+layout: changelog
+title: "AACSearch Sites now supports TanStack Start"
+date: 2025-10-28
+cover: /images/blog/tanstack-start-support-in-aacsearch-sites/cover.png
+---
+[TanStack Start](https://tanstack.com/start/latest) is quickly becoming the go-to framework for developers who want simplicity, type safety, and performance without the overhead. 
+
+And now, AACSearch Sites brings full **Server-Side Rendering (SSR)** support for TanStack Start, making it easier to build, run, and deploy modern React and Solid apps on AACSearch Cloud.
+
+# What’s new
+
+- **Full SSR support for TanStack Start**: Deploy TanStack Start apps directly on AACSearch Cloud with zero configuration.
+- **Native Cloud support**: Everything works out of the box on AACSearch Cloud, no additional setup required.
+
+It’s now available on AACSearch Cloud.
+
+{% arrow_link href="/blog/post/tanstack-start-support-in-aacsearch-sites" %}
+Read the announcement to learn more
+{% /arrow_link %}

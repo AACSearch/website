@@ -1,0 +1,61 @@
+services:
+    traefik:
+        image: traefik:2.9
+        command:
+            - --log.level=DEBUG
+            - --api.insecure=true
+            - --providers.docker=true
+            - --providers.docker.exposedByDefault=false
+            - --entrypoints.web.address=:80
+            - --entrypoints.websecure.address=:443
+            - --providers.docker.constraints=Label(`traefik.constraint-label-stack`,`homepage`)
+            - --accesslog=true
+        labels:
+            - traefik.http.routers.traefik.middlewares=traefik-compress
+            - traefik.http.middlewares.traefik-compress.compress=true
+        ports:
+            - 80:80
+            - 8080:8080
+        volumes:
+            # - /letsencrypt:/letsencrypt
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - homepage
+
+    homepage:
+        image: homepage-dev
+        build:
+            context: .
+            args:
+                - PUBLIC_AACSEARCH_ENDPOINT=$PUBLIC_AACSEARCH_ENDPOINT
+                - PUBLIC_AACSEARCH_DASHBOARD=$PUBLIC_AACSEARCH_DASHBOARD
+                - PUBLIC_AACSEARCH_PROJECT_INIT_ID=$PUBLIC_AACSEARCH_PROJECT_INIT_ID
+                - PUBLIC_AACSEARCH_PROJECT_ID=$PUBLIC_AACSEARCH_PROJECT_ID
+                - PUBLIC_AACSEARCH_DB_MAIN_ID=$PUBLIC_AACSEARCH_DB_MAIN_ID
+                - PUBLIC_AACSEARCH_COL_THREADS_ID=$PUBLIC_AACSEARCH_COL_THREADS_ID
+                - PUBLIC_AACSEARCH_COL_MESSAGES_ID=$PUBLIC_AACSEARCH_COL_MESSAGES_ID
+                - PUBLIC_AACSEARCH_FN_TLDR_ID=$PUBLIC_AACSEARCH_FN_TLDR_ID
+                - PUBLIC_POSTHOG_API_KEY=$PUBLIC_POSTHOG_API_KEY
+        restart: always
+        networks:
+            - homepage
+        labels:
+            - traefik.enable=true
+            - traefik.constraint-label-stack=homepage
+            - traefik.docker.network=aacsearch
+            - traefik.http.middlewares.aacsearch_middlewares.compress=true
+            - traefik.http.services.aacsearch_service.loadbalancer.server.port=3000
+            #http
+            - traefik.http.routers.aacsearch.entrypoints=web
+            - traefik.http.routers.aacsearch.rule=PathPrefix(`/`)
+            - traefik.http.routers.aacsearch.service=aacsearch_service
+            - traefik.http.routers.aacsearch.middlewares=aacsearch_middlewares
+            # https
+            - traefik.http.routers.aacsearch_secure.entrypoints=websecure
+            - traefik.http.routers.aacsearch_secure.rule=PathPrefix(`/`)
+            - traefik.http.routers.aacsearch_secure.service=aacsearch_service
+            - traefik.http.routers.aacsearch_secure.tls=true
+            - traefik.http.routers.aacsearch_secure.middlewares=aacsearch_middlewares
+
+networks:
+    homepage:

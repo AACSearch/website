@@ -1,0 +1,33 @@
+---
+layout: article
+title: HTTPS
+description: Learn how AACSearch Cloud enforces secure connections by enforcing HTTPS on all endpoints.
+---
+
+AACSearch Cloud serves all endpoints over an HTTPS connection by default. 
+Requests made through an unsecure HTTP connection will be redirected to.
+
+Redirected requests will show a `301` response status.
+
+```http
+HTTP/1.1 301 Moved Permanently
+Content-Type: application/json
+Location: https://<REGION>.cloud.aacsearch.io/v1/<ENDPOINT>
+```
+
+AACSearch Cloud does not support HTTP, which is a common practice in modern development, because unencrypted
+HTTP traffic is dangerous and exposes sensitive user data to malicious attackers.
+
+# Strict-Transport-Security {% #strict-transport-security %}
+AACSearch uses the [Strict-Transport-Security header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
+to inform browsers that the website should only be accessed using HTTPS, further protecting against 
+man-in-the-middle attacks such as protocol downgrade attacks and cookie hijacking. 
+By enforcing HTTPS, AACSearch Cloud's endpoint will always be served over a secure connection, which helps protect users' data and privacy.
+
+# Custom domains {% #custom-domains %}
+You can add a [custom domain](/docs/advanced/platform/custom-domains) to your AACSearch project so you can access AACSearch API endpoints
+on your own domain. AACSearch will [generate TLS certificates](/docs/advanced/security/tls) for your domain and enforce HTTPS communication.
+
+# Function domains {% #function-domains %}
+AACSearch generates domains for AACSearch Functions so they can be executed through HTTPS requests.
+AACSearch also [generates TLS certificates](/docs/advanced/security/tls) for these domains to enforce HTTPS communication.

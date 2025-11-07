@@ -1,0 +1,160 @@
+---
+layout: post
+title: "CI/CD examples in AACSearch CLI"
+description: Explore the brand-new AACSearch CLI features in detail and take a look at some CI/CD examples.
+date: 2024-08-20
+cover: /images/blog/cdi-cover.png
+timeToRead: 5
+author: ebenezer-don
+category: product
+featured: false
+---
+The AACSearch CLI has undergone significant updates to enhance support for Continuous Integration and Continuous Deployment (CI/CD) pipelines. These changes make it easier to automate deployment processes and ensure robust, non-interactive actions. In this article, we’ll explore the new additions, the benefits of these enhancements for CI/CD pipelines, and best practices for using the AACSearch CLI in your workflows.
+
+# Key features
+
+## Improved non-interactive commands
+
+To support CI/CD pipelines, the AACSearch CLI now fully accommodates non-interactive actions for all commands. This is important for CI/CD pipelines, where manual intervention needs to be minimized.
+
+### The `--force` flag
+
+You can use the `--force` flag with any command that typically prompts for user confirmation, such as `aacsearch push collections`. This flag pre-answers all prompts with "YES," allowing the command to run without interruption.
+
+```bash
+aacsearch push collections --force
+
+```
+
+### The `--all` flag
+
+The `--all` flag can be used to push or pull all available resources for services. This flag is designed to simplify bulk operations, making it easier to manage multiple resources at once in your CI/CD pipelines.
+
+```bash
+aacsearch pull collections --all
+
+```
+
+In a CI/CD pipeline, this could be part of a deployment process:
+
+```yaml
+name: Sync Collections
+
+on:
+	release:
+		types: [ published ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install AACSearch CLI
+        run: npm install -g aacsearch-cli
+      - name: Pull Collections
+        run: aacsearch pull collections --all --force
+        env:
+          PROJECT_ID: ${{ secrets.AACSEARCH_PROJECT_ID }}
+          API_KEY: ${{ secrets.AACSEARCH_API_KEY }}
+
+```
+
+### Pushing a single resource
+
+You can also push a single resource by specifying its type and ID. This allows you to manage individual resources more precisely:
+
+Push a function:
+
+```bash
+aacsearch push function --function-id="function_id"
+
+```
+
+Push a collection:
+
+```bash
+aacsearch push collection --collection-id="collection_id"
+```
+
+## Headless login
+
+Previously, the AACSearch CLI supported non-interactive login using API keys for authorization. This was done using the following command:
+
+```bash
+aacsearch client --projectId PROJECT_ID --endpoint ENDPOINT_URL --key API_KEY
+
+```
+
+While this method is effective for many automated workflows, it has limitations, particularly when user-level permissions or actions are required. To address this, the latest version introduces a headless login feature. This new feature allows you to log in and execute commands from the user level without requiring interactive input during the login process:
+
+```bash
+aacsearch login --email user@aacsearch.com --password password
+
+```
+
+If you have Multi-Factor Authentication (MFA) enabled, you can use the `--mfa` parameter. You can use external tools and libraries to generate an MFA code from the MFA secret, which you can pass into the automation as an environment variable:
+
+```bash
+aacsearch login --email user@aacsearch.com --password password --mfa MFA_CODE
+```
+
+Here’s how you might integrate headless login into a Jenkins pipeline:
+
+```groovy
+pipeline {
+    agent any
+    environment {
+        AACSEARCH_EMAIL = credentials('aacsearch-email')
+        AACSEARCH_PASSWORD = credentials('aacsearch-password')
+        AACSEARCH_ENDPOINT = credentials('aacsearch-endpoint')
+    }
+    stages {
+        stage('Login to AACSearch') {
+            steps {
+                sh 'aacsearch login --email $AACSEARCH_EMAIL --password $AACSEARCH_PASSWORD --endpoint $AACSEARCH_ENDPOINT'
+            }
+        }
+        stage('Push Collections') {
+            steps {
+                sh 'aacsearch push collections --all --force'
+            }
+        }
+    }
+}
+
+```
+
+# Benefits of the enhanced CLI for CI/CD
+
+- **Streamlined deployment**
+
+Adapting CI/CD pipelines with these new features ensures that deployments are streamlined and automated, reducing the risk of human error and increasing deployment speed.
+
+- **Full automation**
+
+Using flags like `--force` and `--all` means that all necessary commands can be executed automatically, fitting seamlessly into your CI/CD workflows.
+
+- **User-level command execution**
+
+The headless login feature extends the flexibility of the AACSearch CLI by allowing user-level command execution, which is useful for scenarios where user-specific actions are required.
+
+# Best practices for using AACSearch CLI in CI/CD
+
+To ensure the best results when using the AACSearch CLI in your CI/CD pipelines, it’s important to follow these best practices:
+
+1. **Secure credentials management:** Use environment variables or secret management features in your CI/CD platform to store sensitive information like API keys, emails, and passwords securely.
+2. **Backup data:** Always back up your current database before starting a migration process. This ensures you can restore your data if something goes wrong.
+3. **Test in a staging environment:** Implement your changes in a staging environment first to identify any potential issues without affecting your production data.
+4. **Synchronize project settings:** Use the `aacsearch pull all` command to synchronize your `aacsearch.config.json` file with all settings and schemas from your project. This ensures that your local configuration matches the server configuration.
+5. **Version control:** Use version control (e.g., Git) to track changes to your schema and configuration files. This allows you to roll back changes if needed.
+6. **Monitor performance:** Monitor the performance of your CI/CD pipelines to identify bottlenecks or issues that may impact deployment speed.
+
+# Conclusion
+
+The latest updates to the AACSearch CLI make it much easier to use in CI/CD pipelines. Now, you can run deployment commands without any prompts, handle bulk operations more smoothly, and log in without a user interface. By following the recommended best practices and adding these features to your CI/CD workflows, you can make your deployment process more efficient and secure, ensuring a smoother development lifecycle.
+
+# More resources:
+
+- [AACSearch CLI commands](https://aacsearch.io/docs/tooling/command-line/commands)
+- [AACSearch non-interactive docs](https://aacsearch.io/docs/tooling/command-line/non-interactive)

@@ -1,0 +1,12 @@
+---
+layout: changelog
+title: AACSearch is now HIPAA compliant
+date: 2024-04-11
+cover: /images/changelog/2024-04-11.png
+---
+
+We’re happy to announce that AACSearch fully complies with the Health Insurance Portability and Accountability Act (HIPAA), alowing developers who handle sensitive health data to trust AACSearch as their backend.
+
+{% arrow_link href="/blog/post/announcing-aacsearch-is-hipaa-compliant" %}
+Read the announcement to learn more
+{% /arrow_link %}

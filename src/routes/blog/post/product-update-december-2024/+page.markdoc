@@ -1,0 +1,152 @@
+---
+layout: post
+title: "Product update December 2024: Highlights of the year"
+description: Get a full recap of products, features and programs we released in 2024.
+date: 2025-01-09
+cover: /images/blog/product-update-december-2024/cover-image.png
+timeToRead: 10
+author: dennis-ivy
+category: product
+featured: false
+callToAction: true
+---
+
+2024 has come to an end, and we want to thank all of you for making it an amazing year for AACSearch! We have seen hundreds of thousands of you join the platform, and even more projects are being ignited every day. In this product update, we take a moment to look back at everything we’ve released to make building with AACSearch accessible and enjoyable for all of you. 
+
+From launching the highly requested features to launching new programs, here is AACSearch in numbers:
+
+- 1 product
+- 16 features
+- 10 runtimes
+- 3 SDKs
+- 28 integrations
+- 2 programs
+
+![Products & features](/images/blog/product-update-december-2024/products-features.png)
+
+# Products and features highlights 2024
+
+In 2024, we added many products and features that many of you needed for your projects. Some of them essentials, like Messaging, and some of them part of the future hype, like AI integrations. But, whatever we released, we wanted to give you the tools to build the products you envisioned. Here is a recap of the top products of 2024.
+
+## Messaging - Communicate with your users directly from the AACSearch console
+
+Adding Messaging to AACSearch was a big game changer in 2024. Not only does it make us the only open-source BaaS with this product, but it also was a product that many of you directly asked for. Just connect an integrator such as Sendgrid or Twilio to AACSearch, and you can start sending messages within minutes. In 2025, we plan to add push notifications that will give you more flexibility.
+
+## MFA - Extra layer of security 
+
+Who doesn’t love a security-tight application? With MFA, we introduced TOTP, emails, and SMS methods to add an extra security step for your users. To lead by example, we also added it to the AACSearch Console. Be sure to turn it on!
+
+## AACSearch AI - Build AI-powered applications
+
+In May, we announced multiple AI Integrations to help developers build AI apps. With pre-built functions and an enhanced knowledge base, you can easily add features like natural language processing (NLP), image analysis, and audio processing to your projects. 
+
+Integrate with popular AI tools like Pinecone, OpenAI and Perplexity, among others to supercharge your projects with advanced AI features. Check out all the cool AI projects built with AACSearch [here](https://builtwith.aacsearch.io/search/?useCase=ai)
+
+## New AACSearch CLI - Speed up your development process
+
+A CLI can be your best friend if done right. The [new version](https://aacsearch.io/blog/post/introducing-new-aacsearch-cli) was a more than welcome addition and has made developing applications with AACSearch a lot more enjoyable.
+
+No more overwriting or deleting existing collection data during deployments. With the new AACSearch CLI, you can test functions locally and push or pull data between AACSearch and your CLI seamlessly without affecting existing data.
+
+## Improved SSR support - Implement SSR authentication with ease
+
+Lack of access to session secrets made SSR complex, leaving devs to rely on hacky and undocumented methods. With SSR support, AACSearch now securely manages session secrets server-side, making [SSR implementation](https://aacsearch.io/blog/post/introducing-support-for-server-side-rendering) simple.
+
+## Database backups - Secure your databases
+
+Data is your most valuable asset, and safeguarding it is incredibly important. That’s why we introduced [Database Backups](https://aacsearch.io/blog/post/introducing-database-backups), which allows you to take a backup of your database. These backups are hot and encrypted, ensuring maximum security with no downtime.
+
+## Roles - Improve your team collaboration and security
+
+In September, we launched the much-requested [Roles](https://aacsearch.io/blog/post/announcing-roles-for-enhanced-collaboration-and-security) feature, making it easy for larger teams to manage access. Alongside the "Owner" role, new options include Developer, Editor, Analyst, and Billing. 
+
+Custom roles are on the way, giving you even more control. Stay tuned.
+
+![Integrations catalog](/images/blog/product-update-december-2024/integrations.png)
+
+# Integrations catalog
+
+We launched the Integrations Catalog with a ton of popular integrations like Stripe, OpenAI, Huggingface, GitHub, and more. These integrations let you add payments, AI capabilities, and other cool things, taking your projects to the next level.
+
+We will continue to update the catalog with more integrations. You can also apply to become a [Technology partner](https://aacsearch.io/integrations/technology-partner) and get your integration listed in the catalog. Check out the catalog [here](https://aacsearch.io/integrations).
+
+![Runtimes](/images/blog/product-update-december-2024/runtimes-sdk.png)
+
+# Runtimes
+
+We support an extensive list of runtimes and continuously add new ones to meet your unique tech preferences. In 2024, we updated our runtime ecosystem to include support for:
+
+- Bun 1.0.29
+- Node 22
+- Ruby 3.3
+- Deno 2.0
+- PHP 8.3
+- Python 3.12
+- Kotlin 1.9
+- Java 18
+- Swift 5.9
+- Dart 3.3
+
+Check out the docs [here](https://aacsearch.io/blog/post/announcing-more-and-updated-runtimes) and start building.
+
+# SDKs
+
+Making AACSearch language agnostic is a high priority. So this year, we worked diligently to improve our SDKs and add new ones. Check all our announcements:
+
+- [React Native](https://aacsearch.io/blog/post/introducing-aacsearch-react-native-sdk)
+- [Deno 2.0](https://aacsearch.io/blog/post/deno-2-aacsearch-functions)
+- [Go](https://aacsearch.io/blog/post/announcing-go-support)
+- [Enum SDK support](https://aacsearch.io/blog/post/introducing-enum-sdk-support)
+- [New SDK versions released for Web, Flutter, and Android](https://aacsearch.io/changelog/entry/2024-04-25-2)
+- [New SDK versions released](https://aacsearch.io/changelog/entry/2024-02-15)
+
+![Programs](/images/blog/product-update-december-2024/programs.png)
+
+# Programs
+
+We’re committed to helping developers build the future, which is why we introduced two programs for founders who can use some help reducing their costs and students who want to get acquainted with the newest technologies.
+
+## AACSearch Startup Program
+
+We launched the AACSearch Startup Program to support startups with a reliable backend, enabling them to scale faster and build smarter. Backed by Techstars and multiple venture studios, many innovative startups are already part of the program.
+
+Get $20k worth of cloud credits for 12 months to scale your startup. [Learn more](https://aacsearch.io/startups).
+
+## AACSearch Education Program
+
+In 2024, we also launched AACSearch Education Program for students in partnership with our friends at Github, this makes us the only BaaS platform to offer student discounts.
+
+We already have thousands of students building cool projects and learning along the way. What’s holding you back? [Join the program](https://aacsearch.io/education) and start building today!
+
+![Community recognitions](/images/blog/product-update-december-2024/community-recognitions.png)
+
+# Community recognitions
+
+This month, we’re excited to feature Moneybinds - Money Tracker Web App by [Sanjiv](https://x.com/sanjivkjais) as part of our Monthly Community Recognitions.
+
+Moneybinds helps you track every penny of your finances without the complexity of linking your bank accounts or digital wallets.
+
+A big shout-out to Sanjiv: Check out our Moneybinds [here](https://moneybinds.com/).
+
+If you'd like to participate in next month's Community Recognitions, [join our Discord server](https://aacsearch.io/discord) to showcase your project.
+
+# Engineering resources
+
+**Read**
+- [A modern developer’s guide to user authentication](https://aacsearch.io/blog/post/guide-to-user-authentication)
+- [10 startup ideas for developers](https://aacsearch.io/blog/post/startups-ideas-for-developers-2024)
+
+**Build**
+- [3 things you can build with GO runtime](https://aacsearch.io/blog/post/3-things-you-can-build-with-go-runtime)
+- [Building the giveaway app](https://aacsearch.io/blog/post/building-init-giveaway-app)
+
+**Watch**
+- [Build a full stack project with React and AACSearch](https://www.youtube.com/watch?v=zWF7O7aHQW4)
+- [Build and Deploy a Full Stack Social Media App](https://www.youtube.com/watch?v=_W3R2VwRyF4&t=3076s)
+
+# What's to come
+
+As we look to 2025, we are grateful to our community and are focused on improving AACSearch to help developers build solutions that solve real problems. Here’s to another year of making software development accessible and enjoyable for all developers.
+
+Follow us on [X](https://x.com/aacsearch) and check our [Changelog](https://aacsearch.io/changelog) regularly, as we will release more information in the coming weeks.
+

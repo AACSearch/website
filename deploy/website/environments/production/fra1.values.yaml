@@ -1,0 +1,6 @@
+domain:
+  - aacsearch.io
+  - www.aacsearch.io
+
+minReplicas: 2
+maxReplicas: 20
