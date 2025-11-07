@@ -5,39 +5,54 @@
 
     const products: { name: string; href: string; description: string }[] = [
         {
-            name: 'Auth',
-            href: '/products/auth',
-            description: 'Secure login with multi-factor auth.'
+            name: 'Search Core',
+            href: '/products/search-core',
+            description: 'Fast and powerful search engine core.'
         },
         {
-            name: 'Databases',
-            href: '/docs/products/databases',
-            description: 'Scalable and robust databases.'
+            name: 'AI Search',
+            href: '/products/ai-search',
+            description: 'Intelligent search powered by machine learning.'
         },
         {
-            name: 'Storage',
-            href: '/products/storage',
-            description: 'Advanced compression and encryption.'
+            name: 'Integrations',
+            href: '/products/integrations',
+            description: 'Connect with your favorite tools and platforms.'
         },
         {
-            name: 'Functions',
-            href: '/products/functions',
-            description: 'Deploy & scale serverless functions.'
+            name: 'Widgets',
+            href: '/products/widgets',
+            description: 'Customizable search widgets for any website.'
         },
         {
-            name: 'Messaging',
-            href: '/products/messaging',
-            description: 'Set up a full-functioning messaging service.'
+            name: 'Analytics',
+            href: '/products/analytics',
+            description: 'Track and analyze search behavior and insights.'
         },
         {
-            name: 'Realtime',
-            href: '/docs/apis/realtime',
-            description: 'Subscribe and react to any event.'
+            name: 'Merchandising',
+            href: '/products/merchandising',
+            description: 'Optimize product discovery and conversions.'
         },
         {
-            name: 'Sites',
-            href: '/products/sites',
-            description: 'The open-source Vercel alternative.'
+            name: 'Multi-Search',
+            href: '/products/multi-search',
+            description: 'Search across multiple data sources seamlessly.'
+        },
+        {
+            name: 'Advanced Search',
+            href: '/products/advanced-search',
+            description: 'Complex queries with advanced filtering options.'
+        },
+        {
+            name: 'Developer Tools',
+            href: '/products/developer-tools',
+            description: 'SDKs, APIs, and tools for developers.'
+        },
+        {
+            name: 'Enterprise',
+            href: '/products/enterprise',
+            description: 'Enterprise-grade search with premium support.'
         }
     ];
 </script>

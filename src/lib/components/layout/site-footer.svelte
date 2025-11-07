@@ -14,81 +14,28 @@
 
     const links: Record<string, { label: string; href: string; target?: string; rel?: string }[]> =
         {
-            'Quick starts': [
-                { label: 'Web', href: '/docs/quick-starts/web' },
-                { label: 'Next.js', href: '/docs/quick-starts/nextjs' },
-                { label: 'React', href: '/docs/quick-starts/react' },
-                { label: 'Vue.js', href: '/docs/quick-starts/vue' },
-                { label: 'Nuxt', href: '/docs/quick-starts/nuxt' },
-                { label: 'SvelteKit', href: '/docs/quick-starts/sveltekit' },
-                { label: 'Refine', href: '/docs/quick-starts/refine' },
-                { label: 'Angular', href: '/docs/quick-starts/angular' },
-                { label: 'React Native', href: '/docs/quick-starts/react-native' },
-                { label: 'Flutter', href: '/docs/quick-starts/flutter' },
-                { label: 'Apple', href: '/docs/quick-starts/apple' },
-                { label: 'Android', href: '/docs/quick-starts/android' },
-                { label: 'Qwik', href: '/docs/quick-starts/qwik' },
-                { label: 'Astro', href: '/docs/quick-starts/astro' },
-                { label: 'Solid', href: '/docs/quick-starts/solid' }
-            ],
             Products: [
-                { label: 'Auth', href: '/products/auth' },
-                { label: 'Databases', href: '/docs/products/databases' },
-                { label: 'Storage', href: '/products/storage' },
-                { label: 'Functions', href: '/products/functions' },
-                { label: 'Messaging', href: '/products/messaging' },
-                { label: 'Realtime', href: '/docs/apis/realtime' },
-                { label: 'Sites', href: '/products/sites' }
+                { label: 'Search Core', href: '/products/search-core' },
+                { label: 'AI Search', href: '/products/ai-search' },
+                { label: 'Integrations', href: '/products/integrations' },
+                { label: 'View all', href: '/products' }
             ],
-            Learn: [
-                { label: 'Docs', href: '/docs' },
-                { label: 'Integrations', href: '/integrations' },
-                { label: 'Community', href: '/community' },
-                { label: 'Init', href: '/init' },
-                { label: 'Threads', href: '/threads' },
-                { label: 'Blog', href: '/blog' },
-                { label: 'Changelog', href: '/changelog' },
-                {
-                    label: 'Roadmap',
-                    href: 'https://github.com/orgs/aacsearch/projects',
-                    target: '_blank',
-                    rel: 'noopener noreferrer'
-                },
-                {
-                    label: 'Source code',
-                    href: 'https://github.com/aacsearch',
-                    target: '_blank',
-                    rel: 'noopener noreferrer'
-                }
-                // {
-                //     label: 'Status',
-                //     href: 'https://aacsearch.online',
-                //     target: '_blank',
-                //     rel: 'noopener noreferrer'
-                // }
+            Resources: [
+                { label: 'Documentation', href: '/docs' },
+                { label: 'API Reference', href: '/docs/api' },
+                { label: 'Quick Start', href: '/docs/quick-start' },
+                { label: 'Blog', href: '/blog' }
             ],
-            Programs: [
-                { label: 'Heroes', href: '/heroes' },
-                { label: 'Startups', href: '/startups' },
-                { label: 'Education', href: '/education' }
-            ],
-            About: [
-                { label: 'Company', href: '/company' },
-                { label: 'Pricing', href: '/pricing' },
+            Company: [
+                { label: 'About', href: '/about' },
                 {
                     label: 'Careers',
                     href: 'https://aacsearch.careers',
                     target: '_blank',
                     rel: 'noopener noreferrer'
                 },
-                {
-                    label: 'Store',
-                    href: 'https://aacsearch.store',
-                    target: '_blank',
-                    rel: 'noopener noreferrer'
-                },
-                { label: 'Contact us', href: '/contact-us' },
-                { label: 'Assets', href: '/assets' }
+                { label: 'Contact', href: '/contact' },
+                { label: 'Pricing', href: '/pricing' }
             ]
         };
 </script>
