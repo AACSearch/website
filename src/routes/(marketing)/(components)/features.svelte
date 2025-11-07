@@ -6,53 +6,53 @@
 
     const features = [
         {
-            label: 'DDoS',
+            label: 'Intelligent Search',
             description:
-                'Automatically detect and mitigate Distributed Denial-of-Service (DDoS) attacks.',
-            icon: '/images/icons/gradients/shield.svg',
-            href: '/docs/advanced/security/abuse-protection#ddos-protection'
-        },
-        {
-            label: 'Encryption',
-            description: 'Built-in data encryption both in rest and in transit.',
-            icon: '/images/icons/gradients/lock.svg',
-            href: '/docs/advanced/security/encryption'
-        },
-        {
-            label: 'Abuse protection',
-            description: 'Protect your APIs from abuse with built-in protection.',
-            icon: '/images/icons/gradients/verified.svg',
-            href: '/docs/advanced/security/abuse-protection#rate-limiting'
-        },
-        {
-            label: 'Data migrations',
-            description: 'Easily transfer data from 3rd parties or between Cloud and self-hosted.',
-            icon: '/images/icons/gradients/database.svg',
-            href: '/docs/advanced/migrations'
-        },
-        {
-            label: 'GDPR',
-            description: 'Safeguard user data and privacy with provided GDPR regulations.',
+                'Power your search with 6 advanced types: full-text, vector, semantic, conversational, image, and geo search capabilities.',
             icon: '/images/icons/gradients/star.svg',
-            href: '/docs/advanced/security/gdpr'
+            href: '/docs/features/search'
         },
         {
-            label: 'SOC-2',
-            description: 'Ensure the highest level of security and privacy protection.',
+            label: 'Multi-tenancy',
+            description: 'Complete data isolation with row-level security, ensuring each tenant\'s data remains private and secure.',
+            icon: '/images/icons/gradients/shield.svg',
+            href: '/docs/features/multi-tenancy'
+        },
+        {
+            label: 'Ready Integrations',
+            description: 'Connect seamlessly with 10+ platforms including WordPress, Shopify, Magento, WooCommerce, and more.',
+            icon: '/images/icons/gradients/database.svg',
+            href: '/docs/integrations'
+        },
+        {
+            label: 'Search Analytics',
+            description: 'Track search queries, clicks, conversions, and no-hits with detailed performance metrics and A/B testing.',
+            icon: '/images/icons/gradients/verified.svg',
+            href: '/docs/features/analytics'
+        },
+        {
+            label: 'Complete Billing',
+            description: 'Built-in Stripe integration with subscription management, usage tracking, and automated invoicing.',
             icon: '/images/icons/gradients/soc-2.svg',
-            href: '/docs/advanced/security/soc2'
+            href: '/docs/features/billing'
         },
         {
-            label: 'HIPAA',
-            description: 'Protect sensitive user health data.',
+            label: 'API-First',
+            description: 'RESTful API with JWT authentication, API keys, rate limiting, and comprehensive SDKs for all platforms.',
+            icon: '/images/icons/gradients/lock.svg',
+            href: '/docs/api'
+        },
+        {
+            label: 'Enterprise Security',
+            description: 'GDPR compliance, encryption at rest and in transit, comprehensive audit logs, and role-based access control.',
             icon: '/images/icons/gradients/hipaa.svg',
-            href: '/docs/advanced/security/hipaa'
+            href: '/docs/security'
         },
         {
-            label: 'CCPA',
-            description: 'Protect sensitive user health data.',
+            label: 'AI-Powered Search',
+            description: 'Natural language processing, conversational search with RAG, and voice-enabled search capabilities.',
             icon: '/images/icons/gradients/ccpa.svg',
-            href: '/docs/advanced/security/ccpa'
+            href: '/docs/features/ai-search'
         }
     ];
 
@@ -74,14 +74,13 @@
             <h2
                 class="text-title font-aeonik-pro text-primary max-w-[700px] leading-12 text-pretty"
             >
-                Safely scale with built-in
-                <span class="whitespace-nowrap">security and compliance</span><span
+                Everything you need for
+                <span class="whitespace-nowrap">enterprise search</span><span
                     class="text-accent">_</span
                 >
             </h2>
             <p class="text-secondary text-description mt-4 max-w-xl font-medium">
-                With a security-first approach, we ensure your products and users are safe by
-                default, making it easy for you to adhere to strict safety policies.
+                From intelligent AI-powered search to complete billing and analytics, AACSearch provides all the tools to build and scale your search experience.
             </p>
         </section>
     </div>
