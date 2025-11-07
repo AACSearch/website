@@ -4,16 +4,29 @@
     import { cn } from '$lib/utils/cn';
     import { getAACSearchDashboardUrl } from '$lib/utils/dashboard';
 
-    const plans: Array<{
+    interface PricingTier {
+        id: string;
         name: string;
         price: string;
+        priceNumber: number;
+        billing: string;
+        tagline: string;
         description: string;
-        tag?: string;
-        subtitle?: string;
+        badge?: string;
+        badgeVariant?: 'popular' | 'enterprise';
+        highlights: string[];
+        highlightFeature: string;
+        cta: string;
+        ctaVariant?: 'primary' | 'secondary';
+        features: Array<{
+            label: string;
+            included: boolean;
+        }>;
         event: string;
         features: string[];
     }> = [
         {
+            id: 'free',
             name: 'Free',
             price: '$0',
             description: 'Perfect for getting started with AACSearch and small projects.',
@@ -69,6 +82,7 @@
             ]
         },
         {
+            id: 'enterprise',
             name: 'Enterprise',
             price: 'Custom',
             description: 'For organizations with custom requirements and maximum control.',
@@ -94,7 +108,7 @@
 
 <div
     class={cn(
-        'relative -mt-6 -mb-12 flex min-h-[650px] max-w-screen items-center justify-center overflow-hidden pt-40 md:mb-0 md:pb-10',
+        'relative -mt-6 -mb-12 flex min-h-[750px] max-w-screen items-center justify-center overflow-hidden pt-40 md:mb-0 md:pb-10',
         className
     )}
 >
@@ -111,7 +125,7 @@
             class="animate-fade-in relative flex w-full flex-col justify-between gap-8 [animation-delay:150ms] [animation-duration:1000ms] md:flex-row md:items-center"
         >
             <h2 class="text-title text-primary font-aeonik-pro max-w-xl text-pretty">
-                Start building like a team of hundreds today<span class="text-accent">_</span>
+                Choose the perfect plan for your search<span class="text-accent">_</span>
             </h2>
 
             <div class="mt-4 flex flex-col gap-2 lg:flex-row">
@@ -124,17 +138,17 @@
                 >
                 <Button
                     onclick={() => {
-                        trackEvent(`pricing-view-plans-click`);
+                        trackEvent(`pricing-comparison-click`);
                     }}
-                    href="/pricing"
+                    href="#compare-plans"
                     class="w-full! lg:w-fit!"
-                    variant="secondary">View pricing plans</Button
+                    variant="secondary">Compare all plans</Button
                 >
             </div>
         </div>
 
         <div
-            class="border-smooth divide-smooth grid min-h-75 w-full grid-cols-1 divide-y divide-dashed rounded-3xl border bg-white/2 backdrop-blur-lg md:grid-cols-2 md:gap-y-12 md:divide-y-0 md:px-4 md:py-8 {gridCols} lg:divide-x"
+            class="border-smooth divide-smooth w-full space-y-6 overflow-x-auto rounded-3xl border bg-white/2 backdrop-blur-lg md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-5"
         >
             {#each plans as { name, price, tag: label, subtitle, description, event }}
                 {@const isEnterprise = name === 'Enterprise'}
@@ -148,32 +162,83 @@
                             >
                         {/if}
                     </div>
-                    <div class="flex flex-1 flex-col">
-                        <span class="text-title font-aeonik-pro text-primary"
-                            >{price}
 
-                            {#if subtitle}
-                                <span class="text-caption text-secondary -ml-1 font-sans"
-                                    >{subtitle}</span
-                                >
-                            {/if}
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-4xl font-bold text-primary font-aeonik-pro">
+                            {plan.price}
                         </span>
+                        <span class="text-sm text-secondary">{plan.billing}</span>
+                    </div>
 
-                        <p class="text-caption text-secondary mt-4 mb-0 block font-medium">
-                            {description}
+                    <p class="text-sm text-secondary leading-relaxed">
+                        {plan.description}
+                    </p>
+
+                    <div class="py-3 border-t border-white/10 border-b">
+                        <p class="text-xs font-semibold text-accent uppercase tracking-wide">
+                            {plan.highlightFeature}
                         </p>
                     </div>
+
+                    <ul class="flex-1 space-y-2.5">
+                        {#each plan.highlights as highlight}
+                            <li class="flex items-start gap-2 text-xs text-secondary">
+                                <span class="text-accent mt-1">+</span>
+                                <span>{highlight}</span>
+                            </li>
+                        {/each}
+                    </ul>
 
                     <Button
                         class="mt-8 mb-0 w-full!"
                         variant={name === 'Professional' ? 'primary' : 'secondary'}
                         href={isEnterprise ? '/contact-us/enterprise' : getAACSearchDashboardUrl()}
                         onclick={() => {
-                            trackEvent(event);
-                        }}>{isEnterprise ? 'Contact us' : 'Start building'}</Button
+                            trackEvent(plan.event);
+                        }}
                     >
+                        {plan.cta}
+                    </Button>
                 </div>
             {/each}
+        </div>
+
+        <div id="compare-plans" class="w-full mt-20">
+            <h3 class="text-2xl font-bold text-white mb-8 text-center">Detailed Feature Comparison</h3>
+            <div class="overflow-x-auto border border-white/10 rounded-xl">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-white/10 bg-white/5">
+                            <th class="px-6 py-4 text-left font-semibold text-white">Feature</th>
+                            {#each visiblePlans as plan}
+                                <th class="px-4 py-4 text-center font-semibold text-white">
+                                    {plan.name}
+                                </th>
+                            {/each}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {#each plans[2].features as feature, idx}
+                            <tr class={idx % 2 === 0 ? 'bg-white/2' : 'bg-transparent'}>
+                                <td class="px-6 py-4 font-medium text-secondary">{feature.label}</td>
+                                {#each visiblePlans as plan}
+                                    <td class="px-4 py-4 text-center">
+                                        {#if plan.features[idx]?.included}
+                                            <span class="inline-block w-5 h-5 rounded-full bg-accent/20 text-accent flex items-center justify-center">
+                                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                                </svg>
+                                            </span>
+                                        {:else}
+                                            <span class="text-white/30">-</span>
+                                        {/if}
+                                    </td>
+                                {/each}
+                            </tr>
+                        {/each}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

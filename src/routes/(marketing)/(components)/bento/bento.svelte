@@ -46,12 +46,17 @@
         <h2 class="text-primary font-aeonik-pro text-title mx-auto max-w-lg text-center">
             Powerful search features, unified platform
         </h2>
+        <p class="text-secondary text-center mx-auto max-w-2xl">
+            Enterprise-grade search solution with AI, integrations, and advanced merchandising
+        </p>
+    </div>
 
         <div class="hidden justify-center gap-8 lg:flex">
             <div
                 class={cn(
                     'bg-card border-smooth text-primary flex h-10 items-center gap-4 rounded-full border border-dashed p-1 text-sm'
                 )}
+                onclick={() => trackEvent(`product-card-${product.id}-click`)}
             >
                 <span class="text-eyebrow text-secondary font-aeonik-fono ml-3 uppercase"
                     >Products</span
