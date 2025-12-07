@@ -1,93 +1,40 @@
 <script lang="ts">
     import { cn } from '$lib/utils/cn';
-    import { trackEvent } from '$lib/actions/analytics';
 
-    interface ProductCard {
-        id: string;
-        title: string;
-        tagline: string;
-        description: string;
-        features: string[];
-        icon: string;
-        href: string;
-    }
-
-    const products: ProductCard[] = [
+    const products = [
         {
-            id: 'search-core',
-            title: 'Search Core',
-            tagline: 'Fast & Powerful',
-            description: 'Enterprise full-text search engine with typo tolerance and advanced ranking.',
-            features: [
-                'Full-text search with typo tolerance',
-                'Multi-language support (30+ languages)',
-                'Faceted search and filtering'
-            ],
-            icon: '/images/icons/illustrated/dark/search-core.png',
+            label: 'Search Core',
+            description: 'Enterprise full-text search with typo tolerance, stemming, and faceted filtering',
+            icon: '/images/icons/illustrated/dark/search.png',
             href: '/products/search-core'
         },
         {
-            id: 'ai-search',
-            title: 'AI Search',
-            tagline: 'Intelligent Results',
-            description: 'Natural language and conversational search powered by vector embeddings and LLMs.',
-            features: [
-                'Natural language processing',
-                'Conversational RAG search',
-                'AI-powered understanding'
-            ],
-            icon: '/images/icons/illustrated/dark/ai-search.png',
+            label: 'AI Search',
+            description: 'Natural language queries, conversational AI, and voice-powered search experiences',
+            icon: '/images/icons/illustrated/dark/ai.png',
             href: '/products/ai-search'
         },
         {
-            id: 'integrations',
-            title: 'Integrations',
-            tagline: 'Connect & Sync',
-            description: 'Connect 10+ platforms instantly with automatic data synchronization.',
-            features: [
-                'E-commerce (Shopify, WooCommerce, Magento)',
-                'CMS (WordPress, Ghost, Strapi, Contentful)',
-                'Real-time webhooks and sync'
-            ],
+            label: 'Integrations',
+            description: 'Connect seamlessly with Shopify, WordPress, Magento, and 10+ platforms',
             icon: '/images/icons/illustrated/dark/integrations.png',
             href: '/products/integrations'
         },
         {
-            id: 'analytics',
-            title: 'Analytics',
-            tagline: 'Insights & Metrics',
-            description: 'Search insights, performance metrics, and no-hit query tracking for optimization.',
-            features: [
-                'Real-time search analytics',
-                'No-hits detection and reporting',
-                'Click tracking and A/B testing'
-            ],
+            label: 'Analytics',
+            description: 'Track search queries, click-through rates, conversions, and user behavior',
             icon: '/images/icons/illustrated/dark/analytics.png',
             href: '/products/analytics'
         },
         {
-            id: 'widgets',
-            title: 'Widgets',
-            tagline: 'Embed & Deploy',
-            description: 'Embeddable search and chat widgets for instant integration into any site.',
-            features: [
-                'Pre-built search widget',
-                'AI chat widget (RAG)',
-                'Customizable UI and branding'
-            ],
+            label: 'Widgets',
+            description: 'Embeddable search bars, autocomplete, and chat widgets for any website',
             icon: '/images/icons/illustrated/dark/widgets.png',
             href: '/products/widgets'
         },
         {
-            id: 'merchandising',
-            title: 'Merchandising',
-            tagline: 'Control Results',
-            description: 'Control search results and rankings with synonyms, overrides, and rules.',
-            features: [
-                'Synonyms (multi-way and one-way)',
-                'Result pinning and exclusions',
-                'Dynamic merchandising rules'
-            ],
+            label: 'Merchandising',
+            description: 'Control search results with synonyms, overrides, and dynamic ranking rules',
             icon: '/images/icons/illustrated/dark/merchandising.png',
             href: '/products/merchandising'
         }
@@ -97,61 +44,75 @@
 <div class="container py-20">
     <div class="mx-auto mb-16 flex max-w-5xl flex-col gap-8">
         <h2 class="text-primary font-aeonik-pro text-title mx-auto max-w-lg text-center">
-            Complete Search Platform
+            Powerful search features, unified platform
         </h2>
         <p class="text-secondary text-center mx-auto max-w-2xl">
             Enterprise-grade search solution with AI, integrations, and advanced merchandising
         </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {#each products as product}
-            <a
-                href={product.href}
+        <div class="hidden justify-center gap-8 lg:flex">
+            <div
                 class={cn(
-                    'border-smooth group relative flex flex-col rounded-2xl border bg-white/2 p-6',
-                    'transition-all duration-300 hover:shadow-[0px_0px_0px_4px_var(--color-offset)]',
-                    'focus:shadow-[0px_0px_0px_4px_var(--color-offset)]'
+                    'bg-card border-smooth text-primary flex h-10 items-center gap-4 rounded-full border border-dashed p-1 text-sm'
                 )}
                 onclick={() => trackEvent(`product-card-${product.id}-click`)}
             >
-                <div class="space-y-4 flex-1">
-                    <div class="flex items-center gap-3">
+                <span class="text-eyebrow text-secondary font-aeonik-fono ml-3 uppercase"
+                    >Products</span
+                >
+                <div class="flex h-full w-full justify-between gap-2">
+                    {#each products as product}
+                        <a
+                            href={product.href}
+                            class="bg-greyscale-800 hover:bg-greyscale-750/50 flex h-full w-fit items-center justify-center gap-2 rounded-full px-3 backdrop-blur-lg transition-opacity"
+                        >
+                            <span
+                                class="text-primary text-caption flex items-center justify-center gap-1 font-medium"
+                            >
+                                <img
+                                    loading="lazy"
+                                    src={product.icon}
+                                    alt={product.label}
+                                    class="size-6"
+                                />
+                                {product.label}</span
+                            >
+                        </a>
+                    {/each}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {#each products as product}
+            <a
+                href={product.href}
+                class="bg-card border-smooth hover:border-primary group relative flex flex-col gap-4 rounded-2xl border p-6 transition-all hover:shadow-lg"
+            >
+                <div class="flex items-start gap-4">
+                    <div class="bg-greyscale-800 flex size-12 shrink-0 items-center justify-center rounded-xl">
                         <img
                             loading="lazy"
                             src={product.icon}
-                            alt="{product.title} icon"
+                            alt={product.label}
                             class="size-8"
                         />
-                        <div>
-                            <h3 class="font-aeonik-pro text-label text-primary">
-                                {product.title}
-                            </h3>
-                            <p class="text-eyebrow text-secondary font-medium">
-                                {product.tagline}
-                            </p>
-                        </div>
                     </div>
-
-                    <p class="text-sub-body text-primary max-w-lg font-medium line-clamp-2">
-                        <span class="text-secondary">{product.description}</span>
-                    </p>
-
-                    <ul class="space-y-2 pt-2">
-                        {#each product.features as feature}
-                            <li class="text-caption text-secondary flex items-start gap-2">
-                                <span class="text-primary/60 mt-1">•</span>
-                                <span>{feature}</span>
-                            </li>
-                        {/each}
-                    </ul>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-primary text-body font-medium">
+                            {product.label}
+                        </h3>
+                    </div>
                 </div>
-
-                <div class="mt-6 pt-4 border-t border-white/10">
-                    <span class="text-eyebrow text-primary font-medium inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                        Learn more
-                        <span class="text-secondary group-hover:translate-x-1 transition-transform">→</span>
-                    </span>
+                <p class="text-secondary text-caption">
+                    {product.description}
+                </p>
+                <div class="mt-auto flex items-center gap-2 text-caption font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                    Learn more
+                    <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
                 </div>
             </a>
         {/each}

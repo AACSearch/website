@@ -3,7 +3,6 @@
     import { Button } from '$lib/components/ui';
     import { cn } from '$lib/utils/cn';
     import { getAACSearchDashboardUrl } from '$lib/utils/dashboard';
-    import { SHOW_SCALE_PLAN } from '$lib/constants/feature-flags';
 
     interface PricingTier {
         id: string;
@@ -24,160 +23,77 @@
             included: boolean;
         }>;
         event: string;
-        isPopular?: boolean;
-    }
-
-    const plans: PricingTier[] = [
+        features: string[];
+    }> = [
         {
             id: 'free',
             name: 'Free',
             price: '$0',
-            priceNumber: 0,
-            billing: 'Forever free',
-            tagline: 'Start your search journey',
-            description: 'Perfect for individuals and small projects exploring intelligent search capabilities.',
-            highlights: [
-                '10K monthly searches',
-                '1 collection',
-                'Basic full-text search',
-                'Email support'
-            ],
-            highlightFeature: 'No credit card required',
-            cta: 'Start Free',
-            ctaVariant: 'secondary',
+            description: 'Perfect for getting started with AACSearch and small projects.',
+            subtitle: '/month',
+            event: 'home-pricing-cards-free-click',
             features: [
-                { label: 'Up to 10K monthly searches', included: true },
-                { label: 'Single collection', included: true },
-                { label: 'Full-text search only', included: true },
-                { label: 'Community support', included: true },
-                { label: 'API access', included: false },
-                { label: 'Advanced analytics', included: false },
-                { label: 'Integrations', included: false },
-                { label: 'SLA guarantee', included: false }
-            ],
-            event: 'pricing-free-click'
+                '10K searches per month',
+                '1 collection',
+                'Basic search features',
+                'Community support'
+            ]
         },
         {
-            id: 'starter',
             name: 'Starter',
             price: '$29',
-            priceNumber: 29,
-            billing: '/month',
-            tagline: 'Launch production searches',
-            description: 'Built for growing applications that need reliable search with essential integrations.',
-            highlights: [
-                '100K monthly searches',
-                '10 collections',
-                '2 integrations included',
-                'API access'
-            ],
-            highlightFeature: 'Perfect for growing teams',
-            cta: 'Start Building',
-            ctaVariant: 'secondary',
+            description: 'Great for growing teams and production applications.',
+            subtitle: '/month',
+            event: 'home-pricing-cards-starter-click',
             features: [
-                { label: 'Up to 100K monthly searches', included: true },
-                { label: 'Up to 10 collections', included: true },
-                { label: 'Full-text + vector search', included: true },
-                { label: '2 integrations included', included: true },
-                { label: 'REST API access', included: true },
-                { label: 'Basic analytics', included: true },
-                { label: 'Email support', included: true },
-                { label: 'SLA guarantee', included: false }
-            ],
-            event: 'pricing-starter-click'
+                '100K searches per month',
+                '10 collections',
+                '2 integrations',
+                'Email support'
+            ]
         },
         {
-            id: 'professional',
             name: 'Professional',
             price: '$99',
-            priceNumber: 99,
-            billing: '/month',
-            tagline: 'Unlimited search at scale',
-            description: 'The most popular choice. Built for teams deploying search across their entire platform.',
-            badge: 'MOST POPULAR',
-            badgeVariant: 'popular',
-            isPopular: true,
-            highlights: [
-                '500K monthly searches',
-                'Unlimited collections',
-                'Full AI capabilities',
-                'Advanced analytics',
-                'Priority support'
-            ],
-            highlightFeature: 'Unlimited collections & integrations',
-            cta: 'Get Started',
-            ctaVariant: 'primary',
+            tag: 'Most Popular',
+            description: 'For teams that need advanced features and scalability.',
+            subtitle: '/month',
+            event: 'home-pricing-cards-professional-click',
             features: [
-                { label: 'Up to 500K monthly searches', included: true },
-                { label: 'Unlimited collections', included: true },
-                { label: 'Unlimited integrations', included: true },
-                { label: 'Full-text, vector, semantic search', included: true },
-                { label: 'Natural language search (NLS)', included: true },
-                { label: 'Advanced analytics & A/B testing', included: true },
-                { label: 'Priority email support', included: true },
-                { label: '99.9% uptime SLA', included: true }
-            ],
-            event: 'pricing-professional-click'
+                '500K searches per month',
+                'Unlimited collections',
+                'AI-powered search (limited)',
+                '5 integrations',
+                'Priority support'
+            ]
         },
         {
-            id: 'business',
             name: 'Business',
             price: '$299',
-            priceNumber: 299,
-            billing: '/month',
-            tagline: 'Enterprise-grade at scale',
-            description: 'For large organizations processing millions of searches with mission-critical requirements.',
-            highlights: [
-                '2M monthly searches',
-                'Unlimited everything',
-                'Full AI suite',
-                '99.9% SLA'
-            ],
-            highlightFeature: 'Advanced security & compliance',
-            cta: 'Contact Sales',
-            ctaVariant: 'secondary',
+            description: 'For businesses requiring enterprise-grade features and reliability.',
+            subtitle: '/month',
+            event: 'home-pricing-cards-business-click',
             features: [
-                { label: 'Up to 2M monthly searches', included: true },
-                { label: 'Unlimited collections & integrations', included: true },
-                { label: 'All search capabilities', included: true },
-                { label: 'Custom webhooks & callbacks', included: true },
-                { label: 'Dedicated API rate limits', included: true },
-                { label: 'Advanced security features', included: true },
-                { label: 'Phone + email support (24/5)', included: true },
-                { label: '99.9% uptime SLA', included: true }
-            ],
-            event: 'pricing-business-click'
+                '2M searches per month',
+                'Full AI capabilities',
+                'Unlimited integrations',
+                '99.9% SLA guarantee',
+                'Dedicated support'
+            ]
         },
         {
             id: 'enterprise',
             name: 'Enterprise',
             price: 'Custom',
-            priceNumber: 9999,
-            billing: 'Contact for pricing',
-            tagline: 'Fully customized solution',
-            description: 'Unlimited search, custom features, dedicated support, and 99.99% SLA for your business.',
-            badge: 'ENTERPRISE',
-            badgeVariant: 'enterprise',
-            highlights: [
-                'Unlimited searches',
-                'Unlimited resources',
-                'Custom AI models',
-                '99.99% SLA'
-            ],
-            highlightFeature: 'White-label & dedicated infrastructure',
-            cta: 'Contact Sales',
-            ctaVariant: 'secondary',
+            description: 'For organizations with custom requirements and maximum control.',
+            event: 'home-pricing-cards-enterprise-click',
             features: [
-                { label: 'Unlimited searches & collections', included: true },
-                { label: 'Unlimited integrations', included: true },
-                { label: 'Custom AI models & training', included: true },
-                { label: 'White-label capabilities', included: true },
-                { label: 'Dedicated infrastructure option', included: true },
-                { label: 'Custom compliance & security', included: true },
-                { label: 'Dedicated account manager', included: true },
-                { label: '99.99% uptime SLA', included: true }
-            ],
-            event: 'pricing-enterprise-click'
+                'Unlimited searches',
+                'On-premise deployment',
+                '99.99% SLA guarantee',
+                'Dedicated account manager',
+                '24/7 premium support'
+            ]
         }
     ];
 
@@ -187,8 +103,7 @@
 
     const { class: className }: PricingProps = $props();
 
-    const visiblePlans = plans;
-    const gridCols = 'lg:grid-cols-5';
+    const gridCols = `lg:grid-cols-${plans.length}`;
 </script>
 
 <div
@@ -235,33 +150,17 @@
         <div
             class="border-smooth divide-smooth w-full space-y-6 overflow-x-auto rounded-3xl border bg-white/2 backdrop-blur-lg md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-5"
         >
-            {#each visiblePlans as plan}
-                {@const isEnterprise = plan.name === 'Enterprise'}
-                {@const isPopular = plan.isPopular}
-                <div
-                    class={cn(
-                        'relative flex h-full w-full flex-col gap-4 border rounded-2xl p-6 transition-all duration-300',
-                        isPopular
-                            ? 'border-accent/60 bg-gradient-to-br from-accent/10 to-accent/5 ring-2 ring-accent/30 md:col-span-2 lg:col-span-1 lg:-mt-4 lg:mb-4'
-                            : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10'
-                    )}
-                >
-                    {#if plan.badge}
-                        <div
-                            class={cn(
-                                'absolute -top-3 left-6 inline-block px-3 py-1 rounded-full text-xs font-semibold',
-                                plan.badgeVariant === 'popular'
-                                    ? 'bg-accent text-white'
-                                    : 'bg-purple-500/80 text-white'
-                            )}
-                        >
-                            {plan.badge}
-                        </div>
-                    {/if}
-
-                    <div class="mt-2">
-                        <h3 class="text-lg font-semibold text-white">{plan.name}</h3>
-                        <p class="text-xs text-secondary mt-1">{plan.tagline}</p>
+            {#each plans as { name, price, tag: label, subtitle, description, event }}
+                {@const isEnterprise = name === 'Enterprise'}
+                <div class="flex h-full w-full grow flex-col gap-1 px-5 py-5 md:py-0">
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-description text-secondary font-medium">{name}</span>
+                        {#if label}
+                            <span
+                                class="bg-accent-200 text-caption rounded-lg px-1.5 py-0.5 font-medium text-white"
+                                >{label}</span
+                            >
+                        {/if}
                     </div>
 
                     <div class="flex items-baseline gap-1">
@@ -291,8 +190,8 @@
                     </ul>
 
                     <Button
-                        class="mt-2 mb-0 w-full!"
-                        variant={isPopular ? 'primary' : 'secondary'}
+                        class="mt-8 mb-0 w-full!"
+                        variant={name === 'Professional' ? 'primary' : 'secondary'}
                         href={isEnterprise ? '/contact-us/enterprise' : getAACSearchDashboardUrl()}
                         onclick={() => {
                             trackEvent(plan.event);
